@@ -1,6 +1,6 @@
 const express = require('express');
 var bodyParser = require("body-parser");
-var tumbuhan_routes = require('./routes/tumbuhan_router');
+var tumbuhan_routes = require('./routers/tumbuhan_router');
 const app = express();
 
 app.use(bodyParser.json());
