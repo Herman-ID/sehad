@@ -1,40 +1,30 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import "./asset/index.css";
-import Navbar from "./components/navbar/navbar";
-import Chatbot from "./components/chatbot/chatbot";
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import $ from 'jquery';
+import './asset/bootstrap/css/bootstrap.css';
+import './asset/main.css';
+import './asset/chatbot/jquery.convform.css';
+import Tumbuhan from './components/tumbuhan';
+import Navbar from './components/navbar/navbar';
+import Chatbot from './components/chatbot/chatbot';
+import Home from './components/content/home';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
+const App = () => (
+  <Router>
+    <div>
+    <script
+      src="https://code.jquery.com/jquery-1.12.3.min.js"
+      integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/autosize@4.0.2/dist/autosize.min.js"></script>
+      <script src="https://eduardotkoller.github.io/convForm/dist/jquery.convform.js"></script>
+      <Navbar />
+      <div class="sehad__container row">
+        <Route exact path="/" component={Home} />
+        <Route path="/tumbuhan" component={Tumbuhan} />
         <Chatbot />
       </div>
-    );
-  }
-}
-
+    </div>
+  </Router>
+);
 export default App;
-=======
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Customers from './components/customers';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Express Starter</h1>
-        </header>
-        <Customers />
-      </div>
-    );
-  }
-}
-
-export default App;
->>>>>>> 4e1880853c872d046f03ebeca691aed80b057a44

@@ -112,32 +112,26 @@ var appRouter = function(app){
         })
     })
 
-    app.get("/api/testasync",function(req,res){
-        // var return_value = {};
-        // async.parallel({
-        //     one:function(parallel_done){
-        //         var sql = "select * from jamu";
-        //         con.query(sql,function(err,result,field){
-        //             if(err) return_value.jamu = err;
-        //             return_value.jamu = result;
-        //             parallel_done(err,result);
-        //         })
-        //     },
-        //     two:function(pararel_done) {
-        //         pararel_done(null,{ini:"contoj:"});
-        //     }
-        // },function(err,result){
-        //     if (err) console.log(err);
-        //         res.status(200).json(result);
-        // })
+    app.delete("/api/jamu/komposisi",function(req,res){
+        jamu_id = req.body.jamu_id;
+        tumbuhan_id = req.body.tumbuhan_id;
 
-        var sql = "select * from jamu";
-        con.query(sql,function(err,result){
-            console.log(result);
-        });
-        res.send({work:true})
-        
+        if(jamu_id == null){
+            res.send(500).send({status:false,message:"ID Jamu tidak boleh kosong."});
+            return false;
+        }
+        if(tumbuhan_id == null){
+            res.send(500).send({status:false,message:"ID Tumbuhan tidak boleh kosong."});
+            return false;
+        }
+        var data = [jamu_id,tumbuhan_id];
+        var sql = "delete from jamu_komposisi where jamu_id = ? and tumbuhan_id = ?";
+        con.query(sql,[data],function(err,result){
+            if(err) res.status(500).send(err);
+            res.status(200).send({status:true,message:"Data Komposisi Jamu berhasil dihapus"});
+        })
     })
+
 }
 
 module.exports = appRouter;

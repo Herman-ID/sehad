@@ -1,11 +1,12 @@
-<<<<<<< HEAD
 {
   "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jquery": "^3.3.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -16,22 +17,3 @@
   },
   "proxy": "http://localhost:5000"
 }
-=======
-{
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:5000"
-}
->>>>>>> 4e1880853c872d046f03ebeca691aed80b057a44
