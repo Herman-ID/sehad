@@ -1,5 +1,5 @@
 {
-  "name": "reactexpress",
+  "name": "sehad",
   "version": "1.0.0",
   "description": "Starter kit for creating React and Express apps",
   "main": "server.js",
@@ -18,5 +18,18 @@
   "dependencies": {
     "concurrently": "^3.5.1",
     "express": "^4.16.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Herman-ID/sehad.git"
+  },
+  "keywords": [
+    "sehad",
+    "sehat",
+    "herbal"
+  ],
+  "bugs": {
+    "url": "https://github.com/Herman-ID/sehad/issues"
+  },
+  "homepage": "https://github.com/Herman-ID/sehad#readme"
 }
