@@ -13,6 +13,21 @@ var appRouter = function(app) {
         next();
     });
 
+    /* Api untuk mengambil data tumbuhan
+        Jika ingin menampilkan 1 data tambahkan parameter id
+        jika ingin mengurutkan data tambahkan parameter ordercolumn untuk value 
+                nama -> 0
+                latin -> 1
+                ordo -> 2
+                famili -> 3
+                genus -> 4
+                species -> 5
+            dan untuk shorting asc atau desc tambahkan parameter
+            orderdir untuk value adalah asc atau dsc
+        jika ingin menampilkan sebagian data bisa menambahkan parameter
+            offset
+            limit
+    */
     app.post('/api/tumbuhan',function(req,res){
         
         var order = ['nama','latin','ordo','famili','genus','species']
@@ -59,6 +74,15 @@ var appRouter = function(app) {
        });
     });
 
+    /* Api untuk menyimpan data tumbuhan
+        Menggunakan method PUT, dengan parameter
+        nama -> wajib di isi
+        latin -> wajib di isi
+        ordo
+        famili
+        genus
+        spesies
+    */
     app.put('/api/tumbuhan',function(req,res){
         var nama = req.body.nama;
         var latin = req.body.latin;
@@ -97,6 +121,12 @@ var appRouter = function(app) {
         //res.status(200).send(data);
     })
 
+
+    /* Api untuk menghapus data tumbuhan
+        Menggunakan Methode DELETE
+        parameter yang harus dikirim yaitu id tumbuhan 
+        id -> wajib di isi
+    */
     app.delete('/api/tumbuhan/',function(req,res){
         var id = req.body.id;
         if(id == null){
@@ -113,6 +143,19 @@ var appRouter = function(app) {
         })
     })
 
+    /* Api untuk mengupdate data tumbuhan
+        menggunakan method POST
+        parameter yang dapat di isi
+        id -> wajib di isi
+        nama
+        latin
+        ordo
+        famili
+        genus
+        spesies
+
+        Minimal ada 1 field yang di update
+    */
     app.post("/api/tumbuhan/update",function(req,res){
         var nama = req.body.nama;
         var latin = req.body.latin;
@@ -145,6 +188,17 @@ var appRouter = function(app) {
         })
     })
 
+    /* Api untuk menyimpan data link Referensi
+        Menggunakan method PUT, dengan parameter
+        tumbuhan_id ->wajib di isi
+        wikipedia
+        alodokter
+        unsplash
+
+        Minimal ada 1 field yang di update
+
+    */
+
     app.put('/api/tumbuhan/link',function(req,res){
         var wikipedia = req.body.wikipedia;
         var alodokter = req.body.alodokter;
@@ -174,6 +228,11 @@ var appRouter = function(app) {
         })
     });
 
+    /* Api untuk menghapus data Link Referensi
+        Menggunakan Methode DELETE
+        parameter yang harus dikirim yaitu id tumbuhan 
+        tumbuhan_id -> wajib di isi
+    */
     app.delete("/api/tumbuhan/link",function(req,res){
         var tumbuhan_id = req.body.tumbuhan_id;
         if(tumbuhan_id == null){
@@ -190,6 +249,10 @@ var appRouter = function(app) {
         })
     })
 
+    /* Api untuk mencari data Tumbuhan
+        Menggunakan Method POST, parameter yang dikirim
+        Keyword 
+    */
     app.post('/api/tumbuhan/search',function(req,res){
         var sql = 'select * from v_tubuhan';
     })
