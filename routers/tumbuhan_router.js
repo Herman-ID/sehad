@@ -1,4 +1,4 @@
-var con = require('../connection/mysql');
+var con = require('../connection/mysql.js');
 var async = require('async');
 
 
@@ -20,7 +20,7 @@ var appRouter = function(app) {
         if(Object.keys(req.body).length>0){
             if(req.body.id){
                 sql += " where";
-                sql += ' id = '+mysql.escape(req.body.id)
+                sql += ' id = '+con.escape(req.body.id)
             }
 
             if(req.body.ordercolumn != null){
