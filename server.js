@@ -1,6 +1,7 @@
 const express = require('express');
 var bodyParser = require("body-parser");
-var tumbuhan_routes = require('./routers/tumbuhan_router');
+var tumbuhan_routes = require('./routers/tumbuhan_router.js');
+var jamu_router = require('./routers/jamu_router');
 const app = express();
 
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.get('/api/customers', (req, res) => {
   });
   
 tumbuhan_routes(app);
+jamu_router(app);
 
 const port = 5000;
 
