@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+import React, { Component } from "react";
+import "./asset/index.css";
+import Navbar from "./components/navbar/navbar";
+import Chatbot from "./components/chatbot/chatbot";
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <Chatbot />
+      </div>
+    );
+  }
+}
+
+export default App;
+=======
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -18,3 +37,4 @@ class App extends Component {
 }
 
 export default App;
+>>>>>>> 4e1880853c872d046f03ebeca691aed80b057a44
