@@ -1,5 +1,3 @@
-require("dotenv").config({ path: "process.env" });
-
 const express = require("express");
 var bodyParser = require("body-parser");
 var tumbuhan_routes = require("./routers/tumbuhan_router.js");
@@ -14,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/chat", (req, res) => {
   const { message } = req.body;
+  console.log(message);
   processMessage(message);
 });
 
