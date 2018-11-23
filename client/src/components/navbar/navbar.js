@@ -8,33 +8,35 @@ class Navbar extends Component {
 
   render() {
     return (
-    <div>
-      <nav class="sehad_navbar row">
-        <img class="sehad_logo"></img>
-        <Logo />
-        <div class="menu_right row">
-            <button class="sehad_btn_rm">+</button>
-            <button class="sehad_btn_rm">+</button>
-          <button class="sehad_btn__menu">=</button>
+      <div>
+        <nav className="sehad_navbar row">
+          <img className="sehad_logo" />
+          <Logo />
+          <div className="menu_right row">
+            <button className="sehad_btn_rm">+</button>
+            <button className="sehad_btn_rm">+</button>
+            <button className="sehad_btn__menu">=</button>
+          </div>
+        </nav>
+
+        <div className="sehad_rightbar">
+          <button className="rightbar_up">SELANJUTNYA</button>
+          <button className="rightbar_down">SEBELUMNYA</button>
         </div>
-      </nav>
-      
-      <div class="sehad_rightbar">
-        <button class="rightbar_up">
-          SELANJUTNYA
-        </button>
-        <button class="rightbar_down">
-        SEBELUMNYA
-          </button>
-      </div>
-      <div class="sehad_leftbar">
-          <ul class="nav">
-            <li><a href="#">MENU</a></li>
-            <li><a href="#">MENU</a></li>
-            <li><a href="#">MENU</a></li>
+        <div className="sehad_leftbar">
+          <ul className="nav">
+            <li>
+              <a href="#">MENU</a>
+            </li>
+            <li>
+              <a href="#">MENU</a>
+            </li>
+            <li>
+              <a href="#">MENU</a>
+            </li>
           </ul>
-    </div>
-   </div>
+        </div>
+      </div>
     );
   }
 }
