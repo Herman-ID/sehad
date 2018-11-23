@@ -14,6 +14,8 @@ h1 {
 .conversation-view {
   width: 100%;
   height: calc(100% - 68px);
+  overflow: scroll;
+  overflow-x: auto;
   padding: 20px 40px;
   background-color: #e5ddd5;
 }

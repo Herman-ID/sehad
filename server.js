@@ -1,24 +1,25 @@
-const express = require("express");
-var bodyParser = require("body-parser");
-var tumbuhan_routes = require("./routers/tumbuhan_router.js");
-var jamu_router = require("./routers/jamu_router");
-const cors = require("cors");
-const processMessage = require("./process-message");
-const app = express();
+// file ini digunakan untuk penyatuan server
 
+// library javascript
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const bodyParser = require("body-parser");
+
+// import class
+const tumbuhan_routes = require("./routers/tumbuhan_router.js");
+const jamu_router = require("./routers/jamu_router");
+const chat_router = require("./routers/chat");
+const port = 5000;
+
+// definisi pengembalian API
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/chat", (req, res) => {
-  const { message } = req.body;
-  console.log(message);
-  processMessage(message);
-});
-
+//melakukan router ke setiap jenis router
 tumbuhan_routes(app);
 jamu_router(app);
+chat_router(app);
 
-const port = 5000;
-
-app.listen(port, () => `Server running on port ${port}`);
+app.listen(port, () => `Server di jalankan pada ${port}`);

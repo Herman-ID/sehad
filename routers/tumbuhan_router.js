@@ -28,7 +28,7 @@ var appRouter = function(app) {
             offset
             limit
     */
-    app.post('/api/tumbuhan',function(req,res){
+    app.post('/api/v1/tumbuhan',function(req,res){
         
         var order = ['nama','latin','ordo','famili','genus','species']
         var sql = 'select * from v_tumbuhan';
@@ -83,7 +83,7 @@ var appRouter = function(app) {
         genus
         spesies
     */
-    app.put('/api/tumbuhan',function(req,res){
+    app.put('/api/v1/tumbuhan',function(req,res){
         var nama = req.body.nama;
         var latin = req.body.latin;
         var ordo = req.body.ordo;
@@ -127,7 +127,7 @@ var appRouter = function(app) {
         parameter yang harus dikirim yaitu id tumbuhan 
         id -> wajib di isi
     */
-    app.delete('/api/tumbuhan/',function(req,res){
+    app.delete('/api/v1/tumbuhan/',function(req,res){
         var id = req.body.id;
         if(id == null){
             res.status(200).send({status:false,message:"ID tumbuhan can not be null"});
@@ -156,7 +156,7 @@ var appRouter = function(app) {
 
         Minimal ada 1 field yang di update
     */
-    app.post("/api/tumbuhan/update",function(req,res){
+    app.post("/api/v1/tumbuhan/update",function(req,res){
         var nama = req.body.nama;
         var latin = req.body.latin;
         var ordo = req.body.ordo;
@@ -199,7 +199,7 @@ var appRouter = function(app) {
 
     */
 
-    app.put('/api/tumbuhan/link',function(req,res){
+    app.put('/api/v1/tumbuhan/link',function(req,res){
         var wikipedia = req.body.wikipedia;
         var alodokter = req.body.alodokter;
         var unsplash = req.body.unsplash;
@@ -233,7 +233,7 @@ var appRouter = function(app) {
         parameter yang harus dikirim yaitu id tumbuhan 
         tumbuhan_id -> wajib di isi
     */
-    app.delete("/api/tumbuhan/link",function(req,res){
+    app.delete("/api/v1/tumbuhan/link",function(req,res){
         var tumbuhan_id = req.body.tumbuhan_id;
         if(tumbuhan_id == null){
             res.status(200).send({status:false,message:"ID tumbuhan can not be null"});
@@ -253,7 +253,7 @@ var appRouter = function(app) {
         Menggunakan Method POST, parameter yang dikirim
         Keyword 
     */
-    app.post('/api/tumbuhan/search',function(req,res){
+    app.post('/api/v1/tumbuhan/search',function(req,res){
         var sql = 'select * from v_tubuhan';
     })
 }
