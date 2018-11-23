@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Pusher from "pusher-js";
 import "../../asset/chat.css";
+import "../../asset/jquery.convform.min.css";
 
 class Chatbot extends Component {
   constructor(props) {
@@ -8,6 +9,12 @@ class Chatbot extends Component {
     this.state = {
       userMessage: "",
       conversation: []
+    };
+    this.style = {
+      overflow: "hidden",
+      overflowWrap: "break-word",
+      resize: "none",
+      height: "32px"
     };
   }
 
@@ -46,7 +53,7 @@ class Chatbot extends Component {
       conversation: [...this.state.conversation, msg]
     });
 
-    fetch("http://localhost:5000/chat", {
+    fetch("http://localhost:5000/api/v1/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -72,20 +79,28 @@ class Chatbot extends Component {
 
     return (
       <div>
-        <div class="sehad__chatbot">
-        <h1>React Chatbot</h1>
         <div className="chat-window">
           <div className="conversation-view">{chat}</div>
           <div className="message-box">
-            <form onSubmit={this.handleSubmit}>
+            <form
+              id="convForm"
+              className="convFormDynamic"
+              onSubmit={this.handleSubmit}
+            >
               <input
                 value={this.state.userMessage}
                 onInput={this.handleChange}
-                className="text-input"
-                type="text"
+                id="userInput"
+                rows="1"
+                placeholder="Type Here"
+                className="userInputDynamic"
+                style={this.style}
                 autoFocus
-                placeholder="Type your message and hit Enter to send"
               />
+              <button type="submit" className="submit">
+                ▶
+              </button>
+              <span className="clear" />
             </form>
           </div>
           </div>

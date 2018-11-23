@@ -1,52 +1,75 @@
 h1 {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
-  .chat-window {
-    width: 750px;
-    margin: auto;
-    border: 1px solid #d5d5d5;
-  }
+.chat-window {
+  width: 100%;
+  margin: auto;
+  border: 1px solid #d5d5d5;
+  height: calc(100vh - 60px);
+}
 
-  .conversation-view {
-    width: 100%;
-    min-height: 600px;
-    padding: 20px 40px;
-    background-color: #e5ddd5;
-  }
+.conversation-view {
+  width: 100%;
+  height: calc(100% - 68px);
+  overflow: scroll;
+  overflow-x: auto;
+  padding: 20px 40px;
+  background-color: #e5ddd5;
+}
 
-  .message-box {
-    width: 100%;
-    padding: 20px 20px;
-  }
+.message-box {
+  width: 100%;
+  height: 30px;
+}
 
-  .text-input {
-    width: 100%;
-    border: none;
-    padding: 5px;
-  }
+.text-input {
+  width: 100%;
+  border: none;
+  padding: 5px;
+}
 
-  .chat-bubble {
-    font-size: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-  }
+.chat-bubble {
+  display: flex;
+  animation: bounceIn 0.2s ease;
+  transform-origin: 0 0 0;
+  border-radius: 20px;
+  padding: 12px 22px;
+  font-size: 0.905rem;
+  color: #333;
+  display: inline-block;
+  padding: 10px 15px 8px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  float: right;
+  clear: both;
+  max-width: 65%;
+  word-wrap: break-word;
+}
 
-  .chat-bubble.ai {
-    justify-content: flex-end;
-  }
+.chat-bubble.human {
+  background: #06b79a;
+  color: #fff;
+  border-top-right-radius: 0;
+}
 
-  .chat-bubble.ai .chat-content {
-    background-color: #4c9689;
-  }
+.chat-bubble.ai {
+  background: #efefef;
+  color: #6f6f6f;
+  float: left;
+  border-top-left-radius: 0;
+}
 
-  .chat-content {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #0747a7;
-    color: white;
-    border-radius: 10px;
-  }
+/* .chat-bubble.human .chat-content {
+  background-color: #4c9689;
+}
+
+.chat-content {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #0747a7;
+  color: white;
+  border-radius: 10px;
+} */
