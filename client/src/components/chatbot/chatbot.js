@@ -72,6 +72,7 @@ class Chatbot extends Component {
 
     return (
       <div>
+        <div class="sehad__chatbot">
         <h1>React Chatbot</h1>
         <div className="chat-window">
           <div className="conversation-view">{chat}</div>
@@ -86,6 +87,7 @@ class Chatbot extends Component {
                 placeholder="Type your message and hit Enter to send"
               />
             </form>
+          </div>
           </div>
         </div>
       </div>

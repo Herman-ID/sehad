@@ -11,7 +11,7 @@ class Tumbuhan extends Component{
     
       componentDidMount() {
         fetch('/api/tumbuhan/',{
-            method: 'POST',
+            method: 'post',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',

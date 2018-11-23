@@ -9,11 +9,11 @@ var appRouter = function(app){
         next();
     });
 
-    app.post("/api/jamu/",function(req,res){
+    app.post("/api/v1/jamu/",function(req,res){
         res.status(200).json({message:"berhasil"});
     })
 
-    app.post("/api/detailjamu",function(req,res){
+    app.post("/api/v1/detailjamu",function(req,res){
         var id_jamu = req.body.jamu_id;
         var return_value = {};
         if(id_jamu == null){
@@ -42,7 +42,7 @@ var appRouter = function(app){
         })
     })
 
-    app.put("/api/jamu/",function(req,res){
+    app.put("/api/v1/jamu/",function(req,res){
         nama = req.body.nama_jamu;
 
         if(nama == null){
@@ -57,7 +57,7 @@ var appRouter = function(app){
         })
     })
 
-    app.delete('/api/jamu/',function(req,res){
+    app.delete('/api/v1/jamu/',function(req,res){
         var jamu_id = req.body.jamu_id;
         if(jamu_id == null){
             res.status(200).send({status:false,message:"ID jamu can not be null"});
@@ -73,7 +73,7 @@ var appRouter = function(app){
         })
     })
 
-    app.post("/api/jamu/update",function(req,res){
+    app.post("/api/v1/jamu/update",function(req,res){
         jamu_id = req.body.jamu_id;
         nama = req.body.nama_jamu;
 
@@ -92,7 +92,7 @@ var appRouter = function(app){
         })
     })
 
-    app.put("/api/jamu/komposisi",function(req,res){
+    app.put("/api/v1/jamu/komposisi",function(req,res){
         jamu_id = req.body.jamu_id;
         tumbuhan_id = req.body.tumbuhan_id;
 
@@ -112,7 +112,7 @@ var appRouter = function(app){
         })
     })
 
-    app.delete("/api/jamu/komposisi",function(req,res){
+    app.delete("/api/v1/jamu/komposisi",function(req,res){
         jamu_id = req.body.jamu_id;
         tumbuhan_id = req.body.tumbuhan_id;
 

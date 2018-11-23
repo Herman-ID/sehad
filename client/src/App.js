@@ -13,7 +13,7 @@ const App = () => (
     <div>
       <Navbar />
       <div class="sehad__container row">
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Chatbot} /> */}
         <Route path="/tumbuhan" component={Tumbuhan} />
         <Chatbot />
       </div>
