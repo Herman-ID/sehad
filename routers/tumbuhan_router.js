@@ -46,6 +46,7 @@ var appRouter = function(app) {
                 sql += " or famili like "+con.escape("%"+req.body.keyword+"%");
                 sql += " or genus like "+con.escape("%"+req.body.keyword+"%");
                 sql += " or spesies like "+con.escape("%"+req.body.keyword+"%");
+                console.dir(req.body.keyword);
             }
 
             if(req.body.ordercolumn != null){

@@ -105,7 +105,6 @@ class Chatbot extends Component {
           </div>
           </div>
         </div>
-      </div>
     );
   }
 }
