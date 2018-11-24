@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {};
     this.state = {
-      menu: true
+      menu: false
     };
     this.OnMenuClick = this.OnMenuClick.bind(this);
   }
