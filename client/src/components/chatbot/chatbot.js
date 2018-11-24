@@ -103,7 +103,7 @@ class Chatbot extends Component {
             <span className="clear" />
           </form>
         </div>
-      </div>
+        </div>
     );
   }
 }
