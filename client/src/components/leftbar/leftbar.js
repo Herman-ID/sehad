@@ -8,15 +8,13 @@ class LeftBar extends Component {
   render() {
     return (
       <div className="sehad_leftbar">
+        <div className="sehad_leftbar__accent" />
         <ul className="nav">
           <li>
-            <a href="#">MENU</a>
+            <a href="#">ID</a>
           </li>
           <li>
-            <a href="#">MENU</a>
-          </li>
-          <li>
-            <a href="#">MENU</a>
+            <a href="#">EN</a>
           </li>
         </ul>
       </div>
