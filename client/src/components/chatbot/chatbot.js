@@ -78,32 +78,30 @@ class Chatbot extends Component {
     );
 
     return (
-      <div>
-        <div className="chat-window">
-          <div className="conversation-view">{chat}</div>
-          <div className="message-box">
-            <form
-              id="convForm"
-              className="convFormDynamic"
-              onSubmit={this.handleSubmit}
-            >
-              <input
-                value={this.state.userMessage}
-                onInput={this.handleChange}
-                id="userInput"
-                rows="1"
-                placeholder="Type Here"
-                className="userInputDynamic"
-                style={this.style}
-                autoFocus
-              />
-              <button type="submit" className="submit">
-                ▶
-              </button>
-              <span className="clear" />
-            </form>
-          </div>
-          </div>
+      <div className="chat-window col-3">
+        <div className="conversation-view">{chat}</div>
+        <div className="message-box">
+          <form
+            id="convForm"
+            className="convFormDynamic"
+            onSubmit={this.handleSubmit}
+          >
+            <input
+              value={this.state.userMessage}
+              onInput={this.handleChange}
+              id="userInput"
+              rows="1"
+              placeholder="Type Here"
+              className="userInputDynamic"
+              style={this.style}
+              autoFocus
+            />
+            <button type="submit" className="submit">
+              ▶
+            </button>
+            <span className="clear" />
+          </form>
+        </div>
         </div>
     );
   }

@@ -6,18 +6,16 @@ h1 {
 
 .chat-window {
   width: 100%;
-  margin: auto;
-  border: 1px solid #d5d5d5;
-  height: calc(100vh - 60px);
+  background-color: #e5ddd5;
+  height: 100%;
 }
 
 .conversation-view {
   width: 100%;
-  height: calc(100% - 68px);
+  height: calc(100% - 55px);
   overflow: scroll;
   overflow-x: auto;
   padding: 20px 40px;
-  background-color: #e5ddd5;
 }
 
 .message-box {
