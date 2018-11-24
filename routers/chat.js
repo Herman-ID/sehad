@@ -8,6 +8,7 @@ var appRouter = function(app) {
     const { message } = req.body;
     console.log(message);
     processMessage(message);
+    res.status(200).send({success:true});
   });
 };
 
