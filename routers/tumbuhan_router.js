@@ -1,6 +1,7 @@
 var con = require('../connection/mysql.js');
 var async = require('async');
 var tumbuhan = require("../models/tumbuhan_model");//Pengambilan data dari model.
+var scrap = require("../lib/scrap_web");
 
 // con.connect(function(err){
 //     if (err) console.log(err);
@@ -120,6 +121,12 @@ var appRouter = function(app) {
     */
     app.post('/api/v1/tumbuhan/search',function(req,res){
         var sql = 'select * from v_tubuhan';
+    })
+
+    app.post("/test/wiki",function(req,res){
+        scrap.getContentAloDokter("https://www.alodokter.com/ini-fakta-flavonoid-yang-perlu-anda-ketahui",function(respone){
+            res.status(200).send(respone);
+        })
     })
 }
 

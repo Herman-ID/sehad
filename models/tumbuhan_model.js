@@ -67,7 +67,7 @@ var tumbuhan_model = {
             }
         ],function(err) {
             //if (err) console.log(err);
-            console.dir(return_value)
+            // console.dir(return_value)
             return res(return_value);
        });
     },
