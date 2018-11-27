@@ -338,7 +338,7 @@ body {
 }
 .sehad__container {
   width: calc(100% - 60px);
-  height: calc(100vh - 130px);
+  height: calc(100vh - 90px);
   margin-top: 60px;
   margin-left: 60px;
   border-bottom-left-radius: 10px;

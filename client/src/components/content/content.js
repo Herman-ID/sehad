@@ -7,7 +7,7 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jenis: "article"
+      jenis: "about"
     };
   }
 
