@@ -1,9 +1,9 @@
 var con = require("../connection/mysql");
 var async = require("async");
 
-// con.connect(function(err) {
-//     if(err) console.dir(err);
-// })
+con.connect(function(err) {
+    if(err) console.dir(err);
+})
 /*setiap function memiliki 2 parameter,
     parameter req sebagai input
     parameter res sebagai output/callback
@@ -43,7 +43,7 @@ var tumbuhan_model = {
                 sql += " limit "+req.body.offset+","+req.body.limit;
             }
         }
-
+        console.dir(sql);
         var return_value ={};
         async.parallel([
             function(parallel_done){
