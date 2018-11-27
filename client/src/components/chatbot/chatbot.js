@@ -33,6 +33,7 @@ class Chatbot extends Component {
       this.setState({
         conversation: [...this.state.conversation, msg]
       });
+      this.props.onDataComing(data);
     });
   }
 

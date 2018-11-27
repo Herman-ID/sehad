@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {};
     this.state = {
-      menu: true
+      menu: false
     };
     this.OnMenuClick = this.OnMenuClick.bind(this);
     
@@ -30,6 +30,7 @@ class App extends React.Component {
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
           <RightBar />
+          <div className="dec_i" />
           <Home menu={this.state.menu} />
         </div>
       </Router>
