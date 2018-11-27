@@ -49,5 +49,5 @@ var randHex = function(len) {
   return r;
 };
 
-var random = sessionStorage.getItem('chanel_id');
+// var random = sessionStorage.getItem('chanel_id');
 export default App;

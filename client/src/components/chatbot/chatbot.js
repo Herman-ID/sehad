@@ -70,7 +70,7 @@ class Chatbot extends Component {
     const ChatBubble = (text, i, className) => {
       return (
         <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
-          <span className="chat-content">{text}</span>
+          <span className="chat-content" dangerouslySetInnerHTML={{__html: text}}></span>
         </div>
       );
     };
