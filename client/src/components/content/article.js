@@ -20,10 +20,10 @@ class Article extends Component {
         <div className="row">
           <div className="review col-7">
             <h1>{this.state.data.title}</h1>
-            <p>{this.state.data.extract}</p>
+            <p>{this.props.data.content}</p>
           </div>
           <div className="foto col-5">
-            <img src={this.state.data.photo} alt={this.state.data.title} />
+            <img src={this.props.data.image} alt={this.state.data.title} />
           </div>
         </div>
       </div>

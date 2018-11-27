@@ -317,6 +317,9 @@ body {
   padding-left: 15%;
   padding-top: 15%;
 }
+.col-8 {
+  padding: 0 !important;
+}
 .ripple:active {
   background-color: #6eb9f7;
   background-size: 100%;
