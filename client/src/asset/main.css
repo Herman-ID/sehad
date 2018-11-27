@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-
+@font-face {
+  font-family: wasatsh;
+  src: url("./font/Wasatsh.otf") format("opentype"),
+    /* Modern Browsers */ url("./font/Wasatsh.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: syabab;
+  src: url("./font/Syabab.ttf") format("truetype"); /* Safari, Android, iOS */
+}
 body {
   background: #fff;
   font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
@@ -35,7 +43,19 @@ body {
   height: 40px;
   border: none;
   /* border-radius: 30px; */
-  margin: 10px;
+  margin: 5px;
+  position: absolute;
+  right: 70px;
+  top: 0px;
+}
+
+.about_sehad {
+  background-image: url("./img/about.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-left: 100px;
 }
 
 .menu_right {
@@ -104,6 +124,7 @@ body {
   left: 0px;
   padding-top: 7px;
   position: fixed;
+  z-index: 3;
 }
 .sehad_leftbar > ul.nav li {
   float: left;
@@ -179,6 +200,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgb(247, 247, 247);
+  z-index: 100;
 }
 .isi_menu {
   width: 20%;
@@ -190,6 +212,78 @@ body {
   color: #7c7c7c;
   font-size: 40px;
   margin-bottom: 20px;
+}
+.title_about {
+  font-family: "Syabab";
+  font-size: 55px;
+  z-index: 20;
+  text-align: left;
+  margin-top: 100px;
+  font-weight: 200;
+  color: #fff;
+}
+.article_sehad {
+  padding: 60px;
+  font-size: 15px;
+  padding-left: 75px;
+}
+.article_sehad > .review {
+  width: 40%;
+}
+.article_sehad .foto {
+  padding-top: 120px;
+}
+.article_sehad .foto > img {
+  width: 100%;
+}
+.article_sehad > .review > h1 {
+  text-align: left;
+  font-weight: 400;
+  font-size: 40px;
+}
+.article_sehad p {
+  text-align: justify;
+}
+.subtitle_about {
+  color: #fff;
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+  top: -80px;
+  left: -10px;
+  text-transform: lowercase;
+}
+.title_about__x {
+  background: #06b79a;
+  width: 200px;
+  height: 20px;
+  border-radius: 10px 0px 10px 10px;
+  position: relative;
+  top: -100px;
+  left: 455px;
+  z-index: 2;
+}
+.dec_i {
+  width: 25%;
+  background: #3b3b3b;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+.title_about__y {
+  background: #06b79a;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px 0px 15px 15px;
+  position: relative;
+  top: -93px;
+  left: 575px;
+}
+.br-n {
+  font-family: "Syabab";
+  text-decoration: underline;
+  text-decoration-color: #06b79a;
+  font-weight: 600;
 }
 .isi_menu h5 {
   font-size: 13px;
@@ -237,7 +331,7 @@ body {
   z-index: 150;
   height: 10px;
   position: fixed;
-  background: #3b3b3b;
+  background: #6eb9f7;
   left: 10px;
   top: 230px;
   border-radius: 5px;
@@ -257,7 +351,7 @@ body {
   overflow: scroll;
   overflow-x: hidden;
   background: rgb(233, 233, 233);
-  padding: 0px 50px 5px;
+  /* padding: 0px 50px 5px; */
   z-index: 4;
   color: rgb(62, 62, 62);
 }

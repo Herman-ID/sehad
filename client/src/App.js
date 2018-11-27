@@ -26,6 +26,7 @@ class App extends React.Component {
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
           <RightBar />
+          <div className="dec_i" />
           <Home menu={this.state.menu} />
         </div>
       </Router>
