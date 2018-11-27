@@ -15,6 +15,10 @@ class App extends React.Component {
       menu: true
     };
     this.OnMenuClick = this.OnMenuClick.bind(this);
+    
+    if(localStorage.getItem('channel_id') === null){
+      localStorage.setItem("channel_id",randHex(10))
+    }
   }
   OnMenuClick() {
     this.setState({ menu: !this.state.menu });
@@ -32,4 +36,17 @@ class App extends React.Component {
     );
   }
 }
+var randHex = function(len) {
+  var maxlen = 8;
+  var min = Math.pow(16,Math.min(len,maxlen)-1) ;
+  var max = Math.pow(16,Math.min(len,maxlen)) - 1;
+  var n   = Math.floor( Math.random() * (max-min+1) ) + min;
+  var r   = n.toString(16);
+  while ( r.length < len ) {
+     r = r + randHex( len - maxlen );
+  }
+  return r;
+};
+
+var random = sessionStorage.getItem('chanel_id');
 export default App;

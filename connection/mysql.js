@@ -6,4 +6,7 @@ var con = mysql.createConnection({
     password : '',
     database : 'sehad'
   });
+con.connect(function(err) {
+    if(err) console.dir(err);
+})
 module.exports = con;

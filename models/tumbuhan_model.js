@@ -26,6 +26,7 @@ var tumbuhan_model = {
                 sql += " or famili like "+con.escape("%"+req.body.keyword+"%");
                 sql += " or genus like "+con.escape("%"+req.body.keyword+"%");
                 sql += " or spesies like "+con.escape("%"+req.body.keyword+"%");
+                sql += " or keyword like "+con.escape("%"+req.body.keyword+"%");
                 console.dir(req.body.keyword);
             }
 
@@ -47,20 +48,26 @@ var tumbuhan_model = {
         async.parallel([
             function(parallel_done){
                 con.query(sql,function(err,result,fiend){
-                    if (err) {return_value.data=err; return parallel_done(err)};
-                    return_value.data=result;
+                    if (err){console.dir(err)}
+                    else{
+                        return_value.data=result;
+                    };
                     parallel_done();
                 });
             },
             function(parallel_done){
                 con.query("select count(*) as jumlah from v_tumbuhan",function(err,result,fiend){
-                    if (err) return parallel_done(err);
-                    return_value.totalRows = result[0].jumlah;
-                    parallel_done();
+                    if (err){console.dir(err)}
+                    else{
+                        return_value.totalRows = result[0].jumlah;
+                        parallel_done();
+                    };
+                    
                 });
             }
         ],function(err) {
             //if (err) console.log(err);
+            console.dir(return_value)
             return res(return_value);
        });
     },

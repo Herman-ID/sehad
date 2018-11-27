@@ -25,7 +25,7 @@ class Chatbot extends Component {
     });
 
     const channel = pusher.subscribe("bot");
-    channel.bind("bot-response", data => {
+    channel.bind(localStorage.getItem('channel_id'), data => {
       const msg = {
         text: data.message,
         user: "ai"
@@ -57,7 +57,8 @@ class Chatbot extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        message: this.state.userMessage
+        message: this.state.userMessage,
+        channel_id:localStorage.getItem('channel_id')
       })
     });
 
