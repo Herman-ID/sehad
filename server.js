@@ -4,6 +4,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const con = require("./connection/mysql");
 const bodyParser = require("body-parser");
 
 // import class
@@ -22,4 +23,8 @@ tumbuhan_routes(app);
 jamu_router(app);
 chat_router(app);
 
+
+con.connect(function(err) {
+    if(err) console.dir(err);
+})
 app.listen(port, () => `Server di jalankan pada ${port}`);

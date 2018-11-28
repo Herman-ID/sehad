@@ -36,6 +36,7 @@ class Chatbot extends Component {
           type: doto.type
         };
         this.props.onDataComing(doto);
+        console.log(doto);
       } else {
         msg = {
           text: doto.data,
