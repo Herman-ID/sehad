@@ -124,7 +124,7 @@ var appRouter = function(app) {
     })
 
     app.post("/test/wiki",function(req,res){
-        scrap.getContentAloDokter("https://www.alodokter.com/ini-fakta-flavonoid-yang-perlu-anda-ketahui",function(respone){
+        scrap.getContentHelloSehat("https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-temulawak-cream-obat/",function(respone){
             res.status(200).send(respone);
         })
     })

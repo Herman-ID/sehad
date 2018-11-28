@@ -1,8 +1,10 @@
 var con = require("../connection/mysql");
 var asycn = require("async");
-
+// con.connect(function(err) {
+//     if(err) console.dir(err);
+// })
 var modelPenyakit = {
-    getPenyakit = function(req,res){
+    getPenyakit:function(req,res){
         var keyword = req.body.keyword;
         var penyakit_id = req.body.penyakit_id;
 
@@ -26,7 +28,7 @@ var modelPenyakit = {
         var sql = "select * from v_penyakit_obat ";
         var id = req.body.penyakit_id;
         if( id != null){
-            sql += " where penyakit_id = "+con.escape()
+            sql += " where penyakit_id = "+con.escape(id)
         }
 
         con.query(sql,function(err,result){

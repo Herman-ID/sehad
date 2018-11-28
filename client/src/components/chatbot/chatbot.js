@@ -25,15 +25,41 @@ class Chatbot extends Component {
     });
 
     const channel = pusher.subscribe("bot");
-    channel.bind(localStorage.getItem('channel_id'), data => {
-      const msg = {
-        text: data.message,
-        user: "ai"
-      };
-      this.setState({
-        conversation: [...this.state.conversation, msg]
-      });
-      this.props.onDataComing(data);
+    channel.bind(localStorage.getItem('channel_id'), (data)=>{
+      try {
+        var item = {};
+        item = JSON.parse(data.message);
+        var message = "";
+        if(item.status == true){
+          console.log(item.type);
+          if(item.type === "tumbuhan"){
+            var image = `<img src='${item.data.image}' width="100%">`;
+            message = image+item.data.summary;
+            console.log("tumbuhan");
+          }
+          if(item.type === "manfaat"){
+            message = item.data.summary;
+            console.log("manfaat");
+          }
+          if(item.type === "penyakit"){
+            message = item.data.obat;
+            console.log("penyakit");
+          }
+        }else{
+          message = item.message;
+          console.log("else");
+        }
+        const msg = {
+          text: message,
+          user: "ai"
+        };
+        this.setState({
+          conversation: [...this.state.conversation, msg]
+        });
+        this.props.onDataComing(data);
+      } catch (error) {
+        console.log(error);
+      }
     });
   }
 
@@ -70,7 +96,7 @@ class Chatbot extends Component {
     const ChatBubble = (text, i, className) => {
       return (
         <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
-          <span className="chat-content" dangerouslySetInnerHTML={{__html: text}}></span>
+          <span className="chat-content"dangerouslySetInnerHTML={{__html: text}}></span>
         </div>
       );
     };
