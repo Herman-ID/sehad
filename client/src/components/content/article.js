@@ -20,7 +20,7 @@ class Article extends Component {
         <div className="row">
           <div className="review col-7">
             <h1>{this.state.data.title}</h1>
-            <p>{this.props.data.content}</p>
+            <div dangerouslySetInnerHTML={{ __html: this.props.data.full }} />
           </div>
           <div className="foto col-5">
             <img src={this.props.data.image} alt={this.state.data.title} />

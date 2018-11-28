@@ -27,16 +27,16 @@ class Chatbot extends Component {
     const channel = pusher.subscribe("bot");
     channel.bind(localStorage.getItem("channel_id"), data => {
       const doto = JSON.parse(data.message);
+      console.log(doto);
       var msg = "";
       if (doto.type === "tumbuhan") {
         msg = {
           image: doto.data.image,
-          text: doto.data.content.substring(0, 60) + "...",
+          text: doto.data.summary.substring(0, 60) + "...",
           user: "ai",
           type: doto.type
         };
         this.props.onDataComing(doto);
-        console.log(doto);
       } else {
         msg = {
           text: doto.data,
