@@ -15,9 +15,9 @@ class App extends React.Component {
       menu: false
     };
     this.OnMenuClick = this.OnMenuClick.bind(this);
-    
-    if(localStorage.getItem('channel_id') === null){
-      localStorage.setItem("channel_id",randHex(10))
+
+    if (localStorage.getItem("channel_id") === null) {
+      localStorage.setItem("channel_id", randHex(10));
     }
   }
 
@@ -31,7 +31,6 @@ class App extends React.Component {
           <scripload />
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
-          <RightBar />
           <div className="dec_i" />
           <Home menu={this.state.menu} />
         </div>
@@ -39,17 +38,19 @@ class App extends React.Component {
     );
   }
 }
+
+// get channel id
+
 var randHex = function(len) {
   var maxlen = 8;
-  var min = Math.pow(16,Math.min(len,maxlen)-1) ;
-  var max = Math.pow(16,Math.min(len,maxlen)) - 1;
-  var n   = Math.floor( Math.random() * (max-min+1) ) + min;
-  var r   = n.toString(16);
-  while ( r.length < len ) {
-     r = r + randHex( len - maxlen );
+  var min = Math.pow(16, Math.min(len, maxlen) - 1);
+  var max = Math.pow(16, Math.min(len, maxlen)) - 1;
+  var n = Math.floor(Math.random() * (max - min + 1)) + min;
+  var r = n.toString(16);
+  while (r.length < len) {
+    r = r + randHex(len - maxlen);
   }
   return r;
 };
 
-// var random = sessionStorage.getItem('chanel_id');
 export default App;

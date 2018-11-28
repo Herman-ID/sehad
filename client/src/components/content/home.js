@@ -6,7 +6,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      msg: ""
+      msg: "",
+      type: "about"
     };
     this.style = {
       height: "100vh",
@@ -16,16 +17,14 @@ class Home extends Component {
     this.onDataComing = this.onDataComing.bind(this);
   }
   onDataComing(message) {
-    if (message.type != "chat") {
-      this.setState({ msg: message.value });
-    }
+    this.setState({ msg: message.data, type: "article" });
   }
   render() {
     return (
       <div className="sehad__container row">
         {this.props.menu === false ? (
           <React.Fragment>
-            <Content content={this.state.msg} />
+            <Content type={this.state.type} content={this.state.msg} />
             <Chatbot onDataComing={this.onDataComing} />
           </React.Fragment>
         ) : (

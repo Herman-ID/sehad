@@ -1,12 +1,12 @@
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 var con = mysql.createConnection({
-    host:'localhost',
-    user :'root',
-    password : '',
-    database : 'sehad'
-  });
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "sehad"
+});
 // con.connect(function(err) {
-//     if(err) console.dir(err);
-// })
+//   if (err) console.dir(err);
+// });
 module.exports = con;

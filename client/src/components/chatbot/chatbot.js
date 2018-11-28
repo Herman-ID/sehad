@@ -25,41 +25,28 @@ class Chatbot extends Component {
     });
 
     const channel = pusher.subscribe("bot");
-    channel.bind(localStorage.getItem('channel_id'), (data)=>{
-      try {
-        var item = {};
-        item = JSON.parse(data.message);
-        var message = "";
-        if(item.status == true){
-          console.log(item.type);
-          if(item.type === "tumbuhan"){
-            var image = `<img src='${item.data.image}' width="100%">`;
-            message = image+item.data.summary;
-            console.log("tumbuhan");
-          }
-          if(item.type === "manfaat"){
-            message = item.data.summary;
-            console.log("manfaat");
-          }
-          if(item.type === "penyakit"){
-            message = item.data.obat;
-            console.log("penyakit");
-          }
-        }else{
-          message = item.message;
-          console.log("else");
-        }
-        const msg = {
-          text: message,
-          user: "ai"
+    channel.bind(localStorage.getItem("channel_id"), data => {
+      const doto = JSON.parse(data.message);
+      var msg = "";
+      if (doto.type === "tumbuhan") {
+        msg = {
+          image: doto.data.image,
+          text: doto.data.content.substring(0, 60) + "...",
+          user: "ai",
+          type: doto.type
         };
-        this.setState({
-          conversation: [...this.state.conversation, msg]
-        });
-        this.props.onDataComing(data);
-      } catch (error) {
-        console.log(error);
+        this.props.onDataComing(doto);
+        console.log(doto);
+      } else {
+        msg = {
+          text: doto.data,
+          user: "ai",
+          type: doto.type
+        };
       }
+      this.setState({
+        conversation: [...this.state.conversation, msg]
+      });
     });
   }
 
@@ -85,7 +72,7 @@ class Chatbot extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message: this.state.userMessage,
-        channel_id:localStorage.getItem('channel_id')
+        channel_id: localStorage.getItem("channel_id")
       })
     });
 
@@ -93,20 +80,37 @@ class Chatbot extends Component {
   };
 
   render() {
-    const ChatBubble = (text, i, className) => {
+    const TumbuhanBubble = (data, index) => {
       return (
-        <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
-          <span className="chat-content"dangerouslySetInnerHTML={{__html: text}}></span>
+        <div
+          key={`${data.user}-${data.index}`}
+          className={`${data.user} chat-bubble img-bubble`}
+        >
+          <img src={data.image} alt={data.text} />
+          <p className="chat-content">{data.text}</p>
+        </div>
+      );
+    };
+    const ChatBubble = (data, index) => {
+      return (
+        <div
+          key={`${data.user}-${index}`}
+          className={`${data.user} chat-bubble`}
+        >
+          <span
+            className="chat-content"
+            dangerouslySetInnerHTML={{ __html: data.text }}
+          />
         </div>
       );
     };
 
     const chat = this.state.conversation.map((e, index) =>
-      ChatBubble(e.text, index, e.user)
+      e.type === "tumbuhan" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
     );
 
     return (
-      <div className="chat-window col-3">
+      <div className="chat-window col-4">
         <div className="conversation-view">{chat}</div>
         <div className="message-box">
           <form
@@ -130,7 +134,7 @@ class Chatbot extends Component {
             <span className="clear" />
           </form>
         </div>
-        </div>
+      </div>
     );
   }
 }

@@ -7,18 +7,23 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jenis: "article"
+      jenis: this.props.type
     };
   }
-
+  componentWillReceiveProps(nextProps) {
+    // You don't have to do this check first, but it can help prevent an unneeded render
+    if (nextProps.type !== this.state.jenis) {
+      this.setState({ jenis: nextProps.type });
+    }
+  }
   render() {
     return (
-      <div className="col-9">
+      <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
             <About />
           ) : this.state.jenis === "article" ? (
-            <Article />
+            <Article data={this.props.content} />
           ) : (
             ""
           )}
