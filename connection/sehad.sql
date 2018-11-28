@@ -171,22 +171,21 @@ CREATE TABLE `tumbuhan_link` (
 --
 
 INSERT INTO `tumbuhan_link` (`tumbuhan_id`, `wikipedia`, `alodokter`, `unsplash`) VALUES
-(25, 'https://id.wikipedia.org/wiki/Kumis_kucing', 'https://www.alodokter.com/8-pilihan-obat-herbal-batu-ginjal', 'kumis kucing'),
-(26, 'https://id.wikipedia.org/wiki/Jeruk_nipis', 'https://www.alodokter.com/komunitas/topic/jeruk-nipis-5', 'Citru, Fruit, Green, Lime'),
-(27, 'https://id.wikipedia.org/wiki/Temu_lawak', 'https://www.alodokter.com/menilik-manfaat-temulawak', 'temulawak'),
-(28, 'https://id.wikipedia.org/wiki/Asam_jawa', 'https://www.alodokter.com/manfaat-asam-jawa-tidak-seasam-rasanya', 'asam jawa'),
-(29, 'https://id.wikipedia.org/wiki/Belimbing_sayur', 'https://www.alodokter.com/ini-fakta-flavonoid-yang-perlu-anda-ketahui', 'belimbing sayur, belimbing wuluh, belimbing buluh, belimbing botol, belimbing besi, atau belimbing asam)'),
-(30, 'https://id.wikipedia.org/wiki/Lidah_buaya', 'https://www.alodokter.com/khasiat-lidah-buaya-yang-sebenarnya', 'lidah buaya, aloevera'),
-(31, 'https://id.wikipedia.org/wiki/Sirih', 'https://www.alodokter.com/search?s=daun%20sirih', 'daun sirih '),
-(32, 'https://id.wikipedia.org/wiki/Daun_Tempuyung', 'https://www.alodokter.com/search?s=daun%20tempuyung', ''),
-(33, 'https://id.wikipedia.org/wiki/Kecibeling', 'https://www.alodokter.com/komunitas/topic/mau-tanya-dokter-3', 'keji beling, pecah beling'),
-(34, 'https://id.wikipedia.org/wiki/Sambiloto', 'https://www.alodokter.com/sambiloto-dan-penyakit-pilek', 'sambiloto'),
-(35, 'https://id.wikipedia.org/wiki/Akar_manis', 'https://www.alodokter.com/jangan-tergoda-kenali-dulu-fakta-obat-herbal-hernia-berikut', 'akar manis'),
-(36, 'https://id.wikipedia.org/wiki/Patah_tulang_(tumbuhan)', 'https://www.alodokter.com/search?s=daun%20patah%20tulang', 'daun patah tulang'),
-(37, 'https://id.wikipedia.org/wiki/Kelor', 'https://www.alodokter.com/search?s=daun%20kelor', 'daun kelor'),
-(38, 'https://id.wikipedia.org/wiki/Pegagan', 'https://www.alodokter.com/pegagan-bisa-mengatasi-penyakit-dan-luka-pada-kulit', 'pegagan'),
-(39, 'https://id.wikipedia.org/wiki/Salam_(tumbuhan)', 'https://www.alodokter.com/selain-sebagai-pelezat-masakan-manfaat-daun-salam-bisa-untuk-ini-juga', 'Daun salam');
-
+(25, 'Kumis_kucing', 'https://www.alodokter.com/8-pilihan-obat-herbal-batu-ginjal', 'kumis kucing'),
+(26, 'Jeruk_nipis', 'https://www.alodokter.com/komunitas/topic/jeruk-nipis-5', 'Citru, Fruit, Green, Lime'),
+(27, 'Temu_lawak', 'https://www.alodokter.com/menilik-manfaat-temulawak', 'temulawak'),
+(28, 'Asam_jawa', 'https://www.alodokter.com/manfaat-asam-jawa-tidak-seasam-rasanya', 'asam jawa'),
+(29, 'Belimbing_sayur', 'https://www.alodokter.com/ini-fakta-flavonoid-yang-perlu-anda-ketahui', 'belimbing sayur, belimbing wuluh, belimbing buluh, belimbing botol, belimbing besi, atau belimbing asam)'),
+(30, 'Lidah_buaya', 'https://www.alodokter.com/khasiat-lidah-buaya-yang-sebenarnya', 'lidah buaya, aloevera'),
+(31, 'Sirih', 'https://www.alodokter.com/search?s=daun%20sirih', 'daun sirih '),
+(32, 'Daun_Tempuyung', 'https://www.alodokter.com/search?s=daun%20tempuyung', ''),
+(33, 'Kecibeling', 'https://www.alodokter.com/komunitas/topic/mau-tanya-dokter-3', 'keji beling, pecah beling'),
+(34, 'Sambiloto', 'https://www.alodokter.com/sambiloto-dan-penyakit-pilek', 'sambiloto'),
+(35, 'Akar_manis', 'https://www.alodokter.com/jangan-tergoda-kenali-dulu-fakta-obat-herbal-hernia-berikut', 'akar manis'),
+(36, 'Patah_tulang_(tumbuhan)', 'https://www.alodokter.com/search?s=daun%20patah%20tulang', 'daun patah tulang'),
+(37, 'Kelor', 'https://www.alodokter.com/search?s=daun%20kelor', 'daun kelor'),
+(38, 'Pegagan', 'https://www.alodokter.com/pegagan-bisa-mengatasi-penyakit-dan-luka-pada-kulit', 'pegagan'),
+(39, 'Salam_(tumbuhan)', 'https://www.alodokter.com/selain-sebagai-pelezat-masakan-manfaat-daun-salam-bisa-untuk-ini-juga', 'Daun salam');
 -- --------------------------------------------------------
 
 --

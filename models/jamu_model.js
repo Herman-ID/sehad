@@ -1,6 +1,12 @@
 var con = require("../connection/mysql");
 var async = require("async");
+try{
+    // con.connect(function(err) {
+    //     if(err) console.dir(err);
+    // })
+}catch(err){
 
+}
 var appJamu = {
     getDetailJamu:function(req,res){
         var id_jamu = req.body.jamu_id;
@@ -35,14 +41,24 @@ var appJamu = {
         }
         );
     },
+    searchJamu:function(req,res){
+        var keyword = req.bocy.keyword;
+        if(keyword == null){
+            return res({status:false,message:"Data Keyword tidak boleh kosong"});
+        }
+        var sql = "select * from jamu";
+        sql += " where nama like "+con.escape("%"+keyword+"%");
+
+        con.query(sql,function(err,result){
+            if(err) return res({status:false,message:"terjadi sebuah kesalahan"});
+            return res(result);
+        })
+    },
     saveJamu:function(req,res){
         nama = req.body.nama_jamu;
 
         if (nama == null) {
-        res
-            .send(500)
-            .send({ status: false, message: "Nama Jamu tidak boleh kosong." });
-        return false;
+        return res({ status: false, message: "Nama Jamu tidak boleh kosong." });
         }
         var data = [[nama]];
         var sql = "insert into jamu(nama) values ?";

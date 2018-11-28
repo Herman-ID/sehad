@@ -1,7 +1,6 @@
 var con = require("../connection/mysql");
 var async = require("async");
 
-
 /*setiap function memiliki 2 parameter,
     parameter req sebagai input
     parameter res sebagai output/callback
@@ -65,7 +64,7 @@ var tumbuhan_model = {
             }
         ],function(err) {
             //if (err) console.log(err);
-            console.dir(return_value)
+            // console.dir(return_value)
             return res(return_value);
        });
     },

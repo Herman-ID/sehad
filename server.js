@@ -23,8 +23,8 @@ tumbuhan_routes(app);
 jamu_router(app);
 chat_router(app);
 
-
+// connect to database
 con.connect(function(err) {
-    if(err) console.dir(err);
-})
+  if (err) console.dir(err);
+});
 app.listen(port, () => `Server di jalankan pada ${port}`);
