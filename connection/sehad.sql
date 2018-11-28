@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Nov 2018 pada 05.36
+-- Generation Time: 28 Nov 2018 pada 02.31
 -- Versi Server: 10.1.10-MariaDB
 -- PHP Version: 7.0.2
 
@@ -52,7 +52,9 @@ INSERT INTO `jamu` (`id`, `nama`) VALUES
 
 CREATE TABLE `jamu_komposisi` (
   `jamu_id` int(11) NOT NULL,
-  `tumbuhan_id` int(11) NOT NULL
+  `tumbuhan_id` int(11) NOT NULL,
+  `dosis` varchar(11) NOT NULL,
+  `satuan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -83,7 +85,8 @@ CREATE TABLE `penyakit` (
 --
 
 INSERT INTO `penyakit` (`penyakit_id`, `nama`, `keyword`) VALUES
-(1, 'Pendarahan', 'Pendarahan ringan,mimisan,darah');
+(1, 'Pendarahan', 'Pendarahan ringan,mimisan,darah'),
+(2, 'migrain', 'migran, pendarahan, mimisan');
 
 -- --------------------------------------------------------
 
@@ -151,7 +154,8 @@ INSERT INTO `tumbuhan` (`id`, `nama`, `latin`, `ordo`, `famili`, `genus`, `spesi
 (36, 'Patah Tulang', 'Euphorbia ticuralli', 'Malpighiales', 'Euphorbiaceae', 'Euphorbia', 'E.tirucalli', 'patah tulang, daun patah tulang, batang patah tulang'),
 (37, 'Kelor', 'Moringa oleifera', 'Brassicales', 'Moringaceae', 'Moringa', 'M.oleifera', 'daun kelor, kelor'),
 (38, 'Pegagan', 'Centella asiacita', 'Apiales', 'Mackinlayaceae', 'Centella', 'C. asiatica', 'pegagan'),
-(39, 'Salam', 'Syzygium polyanthum', 'Myrtales', 'Myrtaceae', 'Syzygium', 'P. betle', 'daun salam, salam, ');
+(39, 'Salam', 'Syzygium polyanthum', 'Myrtales', 'Myrtaceae', 'Syzygium', 'P. betle', 'daun salam, salam, '),
+(40, 'Kunyit', 'Curcuma longa', 'Zingiberales', 'Zingiberaceae', 'Curcuma', 'C. longa', 'kunyit, koneng');
 
 -- --------------------------------------------------------
 
@@ -171,21 +175,23 @@ CREATE TABLE `tumbuhan_link` (
 --
 
 INSERT INTO `tumbuhan_link` (`tumbuhan_id`, `wikipedia`, `alodokter`, `unsplash`) VALUES
-(25, 'Kumis_kucing', 'https://www.alodokter.com/8-pilihan-obat-herbal-batu-ginjal', 'kumis kucing'),
-(26, 'Jeruk_nipis', 'https://www.alodokter.com/komunitas/topic/jeruk-nipis-5', 'Citru, Fruit, Green, Lime'),
-(27, 'Temu_lawak', 'https://www.alodokter.com/menilik-manfaat-temulawak', 'temulawak'),
-(28, 'Asam_jawa', 'https://www.alodokter.com/manfaat-asam-jawa-tidak-seasam-rasanya', 'asam jawa'),
-(29, 'Belimbing_sayur', 'https://www.alodokter.com/ini-fakta-flavonoid-yang-perlu-anda-ketahui', 'belimbing sayur, belimbing wuluh, belimbing buluh, belimbing botol, belimbing besi, atau belimbing asam)'),
-(30, 'Lidah_buaya', 'https://www.alodokter.com/khasiat-lidah-buaya-yang-sebenarnya', 'lidah buaya, aloevera'),
-(31, 'Sirih', 'https://www.alodokter.com/search?s=daun%20sirih', 'daun sirih '),
-(32, 'Daun_Tempuyung', 'https://www.alodokter.com/search?s=daun%20tempuyung', ''),
+(25, 'Kumis_kucing', 'https://hellosehat.com/hidup-sehat/nutrisi/manfaat-kumis-kucing/', 'kumis kucing'),
+(26, 'Jeruk_nipis', 'https://hellosehat.com/hidup-sehat/tips-sehat/8-manfaat-air-jeruk-nipis-bagi-kesehatan/', 'Citru, Fruit, Green, Lime'),
+(27, 'Temu_lawak', 'https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-temulawak-cream-obat/', 'temulawak'),
+(28, 'Asam_jawa', 'https://hellosehat.com/hidup-sehat/nutrisi/manfaat-asam-jawa-untuk-diet/', 'asam jawa'),
+(29, 'Belimbing_sayur', 'https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-belimbing-wuluh/', 'belimbing sayur, belimbing wuluh, belimbing buluh, belimbing botol, belimbing besi, atau belimbing asam)'),
+(30, 'Lidah_buaya', 'https://hellosehat.com/hidup-sehat/fakta-unik/8-manfaat-lidah-buaya-yang-serba-guna/', 'lidah buaya, aloevera'),
+(31, 'Sirih', 'https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-daun-sirih-hijau-sirih-merah/', 'daun sirih '),
+(32, 'Daun_Tempuyung', 'https://hellosehat.com/pusat-kesehatan/demam-berdarah-dengue-dbd/manfaat-kesehatan-jambu-biji/', ''),
 (33, 'Kecibeling', 'https://www.alodokter.com/komunitas/topic/mau-tanya-dokter-3', 'keji beling, pecah beling'),
-(34, 'Sambiloto', 'https://www.alodokter.com/sambiloto-dan-penyakit-pilek', 'sambiloto'),
+(34, 'Sambiloto', 'https://hellosehat.com/hidup-sehat/fakta-unik/berbagai-khasiat-sambiloto/', 'sambiloto'),
 (35, 'Akar_manis', 'https://www.alodokter.com/jangan-tergoda-kenali-dulu-fakta-obat-herbal-hernia-berikut', 'akar manis'),
 (36, 'Patah_tulang_(tumbuhan)', 'https://www.alodokter.com/search?s=daun%20patah%20tulang', 'daun patah tulang'),
-(37, 'Kelor', 'https://www.alodokter.com/search?s=daun%20kelor', 'daun kelor'),
-(38, 'Pegagan', 'https://www.alodokter.com/pegagan-bisa-mengatasi-penyakit-dan-luka-pada-kulit', 'pegagan'),
-(39, 'Salam_(tumbuhan)', 'https://www.alodokter.com/selain-sebagai-pelezat-masakan-manfaat-daun-salam-bisa-untuk-ini-juga', 'Daun salam');
+(37, 'Kelor', 'https://hellosehat.com/hidup-sehat/fakta-unik/7-manfaat-daun-kelor/', 'daun kelor'),
+(38, 'Pegagan', 'https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-pegagan-herbal/', 'pegagan'),
+(39, 'Salam_(tumbuhan)', 'https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-daun-salam/', 'Daun salam'),
+(40, 'Kunyit', 'https://hellosehat.com/hidup-sehat/nutrisi/manfaat-kunyit-untuk-pencernaan/', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -333,7 +339,7 @@ ALTER TABLE `jamu`
 -- AUTO_INCREMENT for table `penyakit`
 --
 ALTER TABLE `penyakit`
-  MODIFY `penyakit_id` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `penyakit_id` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `penyakit_obat`
 --
@@ -343,7 +349,7 @@ ALTER TABLE `penyakit_obat`
 -- AUTO_INCREMENT for table `tumbuhan`
 --
 ALTER TABLE `tumbuhan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
