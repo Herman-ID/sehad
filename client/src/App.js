@@ -20,6 +20,7 @@ class App extends React.Component {
       localStorage.setItem("channel_id",randHex(10))
     }
   }
+
   OnMenuClick() {
     this.setState({ menu: !this.state.menu });
   }
@@ -27,6 +28,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <scripload />
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
           <RightBar />
