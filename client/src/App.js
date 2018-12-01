@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./asset/main.css";
 import Navbar from "./components/navbar/navbar";
 import LeftBar from "./components/leftbar/leftbar";
-import RightBar from "./components/rightbar/rightbar";
 import Home from "./components/content/home";
-
+import SiteMap from "./components/sitemap/sitemap";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,11 +27,11 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <scripload />
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
           <div className="dec_i" />
-          <Home menu={this.state.menu} />
+          <Home menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
+          <SiteMap />
         </div>
       </Router>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Menu from "./menu";
 import Article from "./article";
 import About from "./about";
 
@@ -28,7 +27,6 @@ class Content extends Component {
             ""
           )}
         </div>
-        <Menu />
       </div>
     );
   }
