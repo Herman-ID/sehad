@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Article from "./article";
 import About from "./about";
+import Gallery from "../gallery/gallery";
 
 class Content extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <About />
+            <Gallery />
           ) : this.state.jenis === "article" ? (
             <Article data={this.props.content} />
           ) : (

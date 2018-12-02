@@ -31,7 +31,6 @@ class Home extends Component {
           <Chatbot
             onDataComing={this.onDataComing}
             url={this.state.urlsegment}
-            selesai={this.selesai}
             isfinish={this.state.selesai}
           />
         </React.Fragment>
