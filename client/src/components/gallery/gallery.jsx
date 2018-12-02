@@ -1,78 +1,73 @@
 import React, { Component } from "react";
+import MainGallery from "./maingallery";
+import MiniGallery from "./minigallery";
 class Gallery extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],
+      now: 0
+    }
+    this.maju = this.maju.bind(this);
+    this.mundur = this.mundur.bind(this);
+  }
+  componentDidMount() {
+
+    fetch("http://localhost:5000/api/v1/tumbuhan", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(result => result.json())
+      .then(datas =>
+        this.setState({
+          data: datas
+        }))
+  }
+  maju() {
+    this.setState({ now: this.state.now + 1 });
+  }
+
+  mundur() {
+    this.setState({ now: this.state.now - 1 })
   }
   render() {
     return (
       <div className="gallery">
         <div className="row gallery-list">
-          <div className="col-3 gallery-temp">
-            <a>
-              <p className="gallery-no">01</p>
-              <h1 className="gallery-title">Headphones</h1>
-              <p className="gallery-subtitle">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores laborum recusandae
-              </p>
-            </a>
-          </div>
-          <div className="col-3 gallery-temp">
-            <a>
-              <p className="gallery-no">01</p>
-              <h1 className="gallery-title">Headphones</h1>
-              <p className="gallery-subtitle">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores laborum recusandae
-              </p>
-            </a>
-          </div>
-          <div className="col-3 gallery-temp">
-            <a>
-              <p className="gallery-no">01</p>
-              <h1 className="gallery-title">Headphones</h1>
-              <p className="gallery-subtitle">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores laborum recusandae
-              </p>
-            </a>
-          </div>
-          <div className="col-3 gallery-temp">
-            <a>
-              <p className="gallery-no">01</p>
-              <h1 className="gallery-title">Headphones</h1>
-              <p className="gallery-subtitle">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores laborum recusandae
-              </p>
-            </a>
-          </div>
+          {
+            this.state.data.length !== 0 ? (
+              this.state.data.map((m, index) => (
+                index >= (this.state.now + 1) && index <= (this.state.now + 4) ?
+                  (<MiniGallery content={m} i={index} />) : null
+              ))
+            ) : ""
+          }
         </div>
         <div className="gallery-main row">
           <div className="gmain-btn">
-
-            <button className="gmain-btn-2">
-              01
-                <br />
-              <i className="fas fa-caret-right" />
-            </button>
-            <button className="gmain-btn-1">
-              04
-                <br />
-              <i className="fas fa-caret-left" />
-            </button>
+            {
+              ((this.state.now + 1) !== this.state.data.length) ? (
+                <button className="gmain-btn-2" onClick={this.maju}>
+                  {this.state.now > 7 ? (this.state.now + 2) : "0" + (this.state.now + 2)}
+                  <br />
+                  <i className="fas fa-caret-right" />
+                </button>
+              ) : null}
+            <h1 className="gmain-now">{this.state.now > 8 ? (this.state.now + 1) : "0" + (this.state.now + 1)}</h1>
+            {
+              this.state.now > 0 ? (
+                <button className="gmain-btn-1" onClick={this.mundur}>
+                  {this.state.now > 9 ? (this.state.now) : "0" + (this.state.now)}
+                  <br />
+                  <i className="fas fa-caret-left" />
+                </button>
+              ) : null
+            }
           </div>
-          <div className="gmain-content">
-            <h1 className="gmain-title">Kunyit</h1>
-            <h2 className="gmain-review">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur architecto itaque ad eligendi harum sapiente iure
-              accusamus illum, esse totam laudantium aliquam, at, eos molestias
-              adipisci consectetur natus quas ea?
-            </h2><br />
-            <a href="#" className="gmain-link"><i className="fas fa-caret-right" />  lihat selengkapnya</a>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cats_Whiskers_%282074039768%29.jpg/268px-Cats_Whiskers_%282074039768%29.jpg" className="gmain-img" />
-          </div>
+          <MainGallery content={
+            this.state.data.length !== 0 ? (
+              this.state.data[this.state.now]
+            ) : false} />
         </div>
       </div >
     );

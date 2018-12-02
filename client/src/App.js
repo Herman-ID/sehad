@@ -8,13 +8,13 @@ import LeftBar from "./components/leftbar/leftbar";
 import Home from "./components/content/home";
 
 
-import Leaflet from 'leaflet'
+import Leaflet from 'leaflet';
 import Pemetaan from "./components/maps/pemetaan";
 
-Leaflet.Icon.Default.imagePath =
-    '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/'
 
 import SiteMap from "./components/sitemap/sitemap";
+Leaflet.Icon.Default.imagePath =
+  '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,13 +36,6 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-          <div>
-            <scripload />
-            <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
-            <LeftBar />
-            <div className="dec_i" />
-            <Home menu={this.state.menu} />
-          </div>
         <div>
           <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
           <LeftBar />
@@ -57,7 +50,7 @@ class App extends React.Component {
 
 // get channel id
 
-var randHex = function(len) {
+var randHex = function (len) {
   var maxlen = 8;
   var min = Math.pow(16, Math.min(len, maxlen) - 1);
   var max = Math.pow(16, Math.min(len, maxlen)) - 1;

@@ -617,7 +617,7 @@ section#demo {
   text-transform: uppercase;
   float: right;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.2em;
   padding: 0px 20px;
 }
 .gmain-btn-2 {
@@ -627,7 +627,17 @@ section#demo {
   float: right;
   font-weight: 700;
   font-size: 1.2em;
-  padding: 8px 20px 0px;
+  padding: 0px 20px;
+  border-left: 1px solid rgb(62, 62, 62, 0.2);
+
+}
+.gmain-now{
+  height:79px;
+  float: right;
+  margin: 0px;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 3em;
   border-left: 1px solid rgb(62, 62, 62, 0.2);
 }
 .gmain-title{
@@ -653,6 +663,7 @@ color: #7c7c7c;
 }
 .gmain-btn-1 >i {
   font-size: 15px !important;
+  margin-top: 30px;
 }
 .gmain-btn-2 >i {
   font-size: 15px !important;
