@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./asset/main.css";
@@ -6,6 +6,13 @@ import Navbar from "./components/navbar/navbar";
 import LeftBar from "./components/leftbar/leftbar";
 import RightBar from "./components/rightbar/rightbar";
 import Home from "./components/content/home";
+
+
+import Leaflet from 'leaflet'
+import Pemetaan from "./components/maps/pemetaan";
+
+Leaflet.Icon.Default.imagePath =
+    '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/'
 
 class App extends React.Component {
   constructor(props) {
@@ -27,13 +34,13 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <scripload />
-          <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
-          <LeftBar />
-          <div className="dec_i" />
-          <Home menu={this.state.menu} />
-        </div>
+          <div>
+            <scripload />
+            <Navbar menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
+            <LeftBar />
+            <div className="dec_i" />
+            <Home menu={this.state.menu} />
+          </div>
       </Router>
     );
   }
