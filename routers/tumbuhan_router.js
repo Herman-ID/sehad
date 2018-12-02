@@ -93,9 +93,6 @@ var appRouter = function(app) {
         wikipedia
         alodokter
         unsplash
-
-        Minimal ada 1 field yang di update
-
     */
 
     app.put('/api/v1/tumbuhan/link',function(req,res){
@@ -115,19 +112,6 @@ var appRouter = function(app) {
         })
     })
 
-    /* Api untuk mencari data Tumbuhan
-        Menggunakan Method POST, parameter yang dikirim
-        Keyword 
-    */
-    app.post('/api/v1/tumbuhan/search',function(req,res){
-        var sql = 'select * from v_tubuhan';
-    })
-
-    app.post("/test/wiki",function(req,res){
-        scrap.getContentHelloSehat("https://hellosehat.com/hidup-sehat/fakta-unik/manfaat-temulawak-cream-obat/",function(respone){
-            res.status(200).send(respone);
-        })
-    })
 }
 
 module.exports = appRouter;

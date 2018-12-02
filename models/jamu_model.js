@@ -12,9 +12,7 @@ var appJamu = {
         var id_jamu = req.body.jamu_id;
         var return_value = {};
         if (id_jamu == null) {
-        res
-            .status(500)
-            .send({ status: false, message: "Jamu ID can not be null" });
+            return res({status: false, message: "Jamu ID can not be null"});
         }
         async.parallel(
         [
@@ -121,7 +119,7 @@ var appJamu = {
         }
         if (tumbuhan_id == null) {
         res
-            .send(500)
+            .status(500)
             .send({ status: false, message: "ID Tumbuhan tidak boleh kosong." });
         return false;
         }
