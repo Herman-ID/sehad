@@ -59,7 +59,7 @@ var appRouter = function(app) {
                             status:true,
                             summary:hasil.summary,
                             image:hasil.image,
-                            result:respone.data[0]
+                            result:item
                         };
                         statistik.getProvinsiPesebaran({body:{id:item.id}},function (tumbuhan) {
                             row.provinsi = tumbuhan;
