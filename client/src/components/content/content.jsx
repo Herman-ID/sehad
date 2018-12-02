@@ -21,7 +21,9 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <Gallery />
+            <About />
+          ) :this.state.jenis === "gallery" ? (
+            <Gallery setTumbuhan={this.props.setTumbuhan}/>
           ) : this.state.jenis === "article" ? (
             <Article data={this.props.content} />
           ) : (

@@ -1,18 +1,13 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./asset/main.css";
 import Navbar from "./components/navbar/navbar";
 import LeftBar from "./components/leftbar/leftbar";
 import Home from "./components/content/home";
-
-
-import Leaflet from 'leaflet';
-import Pemetaan from "./components/maps/pemetaan";
-
-
 import SiteMap from "./components/sitemap/sitemap";
+import Leaflet from 'leaflet';
+
 Leaflet.Icon.Default.imagePath =
   '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
 

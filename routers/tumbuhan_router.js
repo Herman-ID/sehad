@@ -2,6 +2,7 @@ var con = require("../connection/mysql.js");
 var scrap = require("../lib/scrap_web");
 var tumbuhan = require("../models/tumbuhan_model"); //Pengambilan data dari model.
 var scrap = require("../lib/scrap_web");
+const statistik = require("../models/statistic_model");
 
 // con.connect(function(err){
 //     if (err) console.log(err);
@@ -57,13 +58,18 @@ var appRouter = function(app) {
                             type:"tumbuhan",
                             status:true,
                             summary:hasil.summary,
+                            image:hasil.image,
                             result:respone.data[0]
                         };
-                        output.push(row);
-                        if(pending === respone.data.length -1){
-                            res.status(200).json(output);
-                        }
-                        pending ++;
+                        statistik.getProvinsiPesebaran({body:{id:item.id}},function (tumbuhan) {
+                            row.provinsi = tumbuhan;
+                            console.log(tumbuhan);
+                            output.push(row);
+                            if(pending === respone.data.length -1){
+                                res.status(200).json(output);
+                            }
+                            pending ++;
+                        })
                     })
                 })
             }else{

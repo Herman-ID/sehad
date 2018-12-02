@@ -6,7 +6,8 @@ class Gallery extends Component {
     super(props);
     this.state = {
       data: [],
-      now: 0
+      now: 0,
+      type: "tumbuhan"
     }
     this.maju = this.maju.bind(this);
     this.mundur = this.mundur.bind(this);
@@ -38,7 +39,7 @@ class Gallery extends Component {
             this.state.data.length !== 0 ? (
               this.state.data.map((m, index) => (
                 index >= (this.state.now + 1) && index <= (this.state.now + 4) ?
-                  (<MiniGallery content={m} i={index} />) : null
+                  (<MiniGallery type={this.state.type} content={m} i={index} />) : null
               ))
             ) : ""
           }
@@ -67,7 +68,7 @@ class Gallery extends Component {
           <MainGallery content={
             this.state.data.length !== 0 ? (
               this.state.data[this.state.now]
-            ) : false} />
+            ) : false} click={this.props.setTumbuhan} type={this.state.type}/>
         </div>
       </div >
     );

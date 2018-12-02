@@ -469,8 +469,8 @@ section#demo {
 
 .sitemap {
   position: fixed;
-  left: -400px;
-  width: 400px;
+  left: -300px;
+  width: 300px;
   height: 100vh;
   z-index: 300;
   background: #3b3b3b;
@@ -514,7 +514,11 @@ section#demo {
 .sitemap ul {
   text-indent: 0.5em;
   list-style: none;
-  border-left: 0.25em solid gold;
+  border-left: 2px dotted gold;
+}
+.sitemap > ul {
+  border-left: 2px solid gold;
+
 }
 .sitemap li:after {
   width: 2px;
@@ -541,11 +545,11 @@ section#demo {
 .sitemap li:before {
   content: "";
   display: inline-block;
-  width: 2.95em;
+  width: 2.90em;
   height: 0;
   position: relative;
-  left: -3.2em;
-  border-top: 0.25em solid gold;
+  left: -3.15em;
+  border-top: 2px dotted gold;
 }
 
 .sitemap h3 {
@@ -725,4 +729,16 @@ color: #7c7c7c;
 
 .pinterest {
   	background: #cb2027;
+}
+.gallery-temp > a{
+  text-decoration: none;
+  color: #3b3b3b;
+}
+.gallery-temp > a:hover{
+  text-decoration: none;
+  color: #3b3b3b;
+}
+.gallery-temp:hover {
+  border-bottom: 3px dotted #06b79a;
+
 }

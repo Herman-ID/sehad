@@ -7,7 +7,7 @@ class SiteMap extends Component {
     };
     this.sitemap = [
       {
-        nama: "tumbuhan",
+        nama: "Tumbuhan",
         link: "tumbuhan",
         children: [
           {
@@ -20,12 +20,17 @@ class SiteMap extends Component {
           }
         ]
       },
-      { nama: "jamu", link: "jamu", children: [] },
+      { nama: "Jamu", link: "jamu", children: [] },
       {
-        nama: "penyakit",
-        link: "penyakit",
+        nama: "Persebaran",
+        link: "persebaran",
         children: []
-      }
+      },
+      {
+        nama: "Klasifikasi",
+        link: "klasifikasi",
+        children: []
+      },
     ];
     this.style = {};
     this.onTutup = this.onTutup.bind(this);
@@ -57,7 +62,7 @@ class SiteMap extends Component {
           left: "0px"
         },
         button: {
-          left: "400px"
+          left: "300px"
         }
       };
     }
@@ -95,8 +100,8 @@ class SiteMap extends Component {
                     ))}
                   </ul>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </li>
             ))}
           </ul>
@@ -109,7 +114,7 @@ class SiteMap extends Component {
           <i
             className={`fas fa-arrow-${
               this.state.isopen === false ? "right" : "left"
-            }`}
+              }`}
           />
         </button>
       </React.Fragment>
