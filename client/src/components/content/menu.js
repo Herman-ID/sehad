@@ -9,7 +9,7 @@ class Menu extends Component {
   render() {
     return (
       <nav className="menu_content navbar navbar-expand-lg navbar-light bg-light">
-        <div className="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        {/* <div className="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
           <ul className="navbar-nav ml-auto text-center">
             <li className="nav-item active">
               <a className="nav-link" href="#">
@@ -26,7 +26,7 @@ class Menu extends Component {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </nav>
     );
   }
