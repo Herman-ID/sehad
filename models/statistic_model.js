@@ -8,10 +8,11 @@ var statisticModel = {
 
         async.parallel([
             function (pararel_done) {
-                var sql = "select count(nama) as jumlah_tumbuhan, nama_provinsi from v_tumbuhan ";
+                var sql = "select count(nama) as jumlah_tumbuhan, nama_provinsi from v_tumbuhan_persebaran ";
                 if(provinsi != null){
                     sql += "where provinsi = ?";
                 }
+                console.dir(sql);
                 con.query(sql,[provinsi],function (err, result) {
                     if(err) pararel_done(err);
                     returnvalue.jumlah_tanaman = result[0].jumlah_tumbuhan;
@@ -19,7 +20,7 @@ var statisticModel = {
                 })
             },
             function (pararel_done) {
-                var sql = "select count(ordo) as jumlah_tanaman , ordo from v_tumbuhan ";
+                var sql = "select count(ordo) as jumlah_tanaman , ordo from v_tumbuhan_persebaran ";
                 if(provinsi != null){
                     sql += "where provinsi = ?";
                 }
@@ -31,7 +32,7 @@ var statisticModel = {
                 })
             },
             function (pararel_done) {
-                var sql = "select count(famili) as jumlah_tanaman, famili from v_tumbuhan ";
+                var sql = "select count(famili) as jumlah_tanaman, famili from v_tumbuhan_persebaran ";
                 if(provinsi != null){
                     sql += "where provinsi = ?";
                 }
@@ -43,7 +44,7 @@ var statisticModel = {
                 })
             },
             function (pararel_done) {
-                var sql = "select count(genus) as jumlah_tanaman, genus from v_tumbuhan ";
+                var sql = "select count(genus) as jumlah_tanaman, genus from v_tumbuhan_persebaran ";
                 if(provinsi != null){
                     sql += "where provinsi = ?";
                 }
@@ -69,6 +70,19 @@ var statisticModel = {
             return res(result);
         })
     },
+    getProvinsiPesebaran:function (req, res) {
+        var id = req.body.id;
+
+        var sql = "SELECT provinsi,nama_provinsi FROM v_tumbuhan_persebaran ";
+        if(id != null){
+            sql += "where id = ?";
+        }
+        // console.log(sql);
+        con.query(sql,[id],function (err, result) {
+            if(err) return res(err);
+            return res(result);
+        })
+    }
 }
 
 module.exports = statisticModel;
