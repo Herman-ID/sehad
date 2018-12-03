@@ -686,6 +686,9 @@ color: #7c7c7c;
 #share {
     text-align: center;
     margin-left: 170px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 
 /* buttons */
@@ -747,4 +750,37 @@ color: #7c7c7c;
 }
 .leaflet-container {
   z-index: 2;
+}
+.card_tumbuhan{
+  color:#3b3b3b;
+}
+.card_tumbuhan:hover{
+  text-decoration: none;
+}
+.card_tumbuhan h1{
+  font-size: 1.5em;
+  margin: 0;
+  text-align: left;
+}
+.card_tumbuhan p {
+  text-align: left;
+  margin:0 !important;
+}
+
+.map-title{
+  z-index: 3;
+  position: fixed;
+  top: 60px;
+  left: calc(((100vw / 12) * 8) - 180px);
+  background: #e7e7e7;
+  padding: 10px;
+  width: 200px;
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.map-title > h1{
+  font-size: 15px;
+  margin: 5px;
+  text-align: left;
+  font-weight: 800;
+
 }

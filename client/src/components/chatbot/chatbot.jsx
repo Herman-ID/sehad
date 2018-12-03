@@ -38,7 +38,7 @@ class Chatbot extends Component {
       const doto = JSON.parse(data.message);
       console.log(doto);
       if (doto.status === true) {
-        if (doto.type === "tumbuhan" || doto.type === "manfaat") {
+        if (doto.type === "tumbuhan" ||doto.type === "peta" || doto.type === "manfaat") {
           msg = {
             image: doto.data.image,
             text: doto.data.summary.substring(0, 60) + "...",
@@ -47,7 +47,8 @@ class Chatbot extends Component {
           };
         }
         this.props.onDataComing(doto);
-      } else {
+      } 
+      else {
         msg = {
           text: doto.message,
           user: "ai"
@@ -78,7 +79,8 @@ class Chatbot extends Component {
       var url = new URL(url_string);
       var c = url.searchParams.get("tumbuhan");
       var d = url.searchParams.get("manfaat");
-      if (c !== null || d !== null) {
+      var e = url.searchParams.get("peta");
+      if (c !== null || d !== null || e !== null) {
         var msg = {
           text: "",
           user: "human"
@@ -87,6 +89,8 @@ class Chatbot extends Component {
           msg.text = "apa itu " + c + "?";
         } else if (d != null) {
           msg.text = "manfaat dari " + d;
+        } else if (e != null) {
+          msg.text = "dimana " + e + "?";
         }
         this.setState({
           conversation: [...this.state.conversation, msg],
@@ -160,7 +164,7 @@ class Chatbot extends Component {
     };
 
     const chat = this.state.conversation.map((e, index) =>
-      e.type === "tumbuhan" || e.type === "manfaat" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
+      e.type === "tumbuhan" || e.type === "manfaat" || e.type === "peta" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
     );
 
     return (

@@ -3,7 +3,7 @@ import Article from "./article";
 import About from "./about";
 import Gallery from "../gallery/gallery";
 import Pemetaan from "../maps/pemetaan";
-
+import Tumbuhanmap from "../maps/tumbuhanmap";
 
 
 class Content extends Component {
@@ -24,14 +24,16 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <Pemetaan />
+            <About />
           ) : this.state.jenis === "gallery" ? (
             <Gallery setTumbuhan={this.props.setTumbuhan} />
-          ) : this.state.jenis === "article" ? (
+          ) : this.state.jenis === "article" && this.props.jenis !== "peta" ? (
             <Article data={this.props.content} jenis={this.props.jenis} />
-          ) : (
-                  ""
-                )}
+          ) : this.state.jenis === "pemetaan" ? (
+            <Pemetaan />
+          ) : this.props.jenis === "peta" ? (
+            <Tumbuhanmap data={this.props.content} />
+          ) : null}
         </div>
       </div>
     );

@@ -12,19 +12,12 @@ class SiteMap extends Component {
         nama: "Tumbuhan",
         link: "gallery_tumbuhan",
         children: [
-          {
-            nama: "tumbuhan",
-            link: "tumbuhan"
-          },
-          {
-            nama: "tumbuhan",
-            link: "tumbuhan"
-          }
+
         ]
       },
       {
-        nama: "Persebaran",
-        link: "persebaran",
+        nama: "Persebaran Tumbuhan",
+        link: "pemetaan",
         children: []
       },
       {

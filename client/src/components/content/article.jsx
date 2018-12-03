@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TumbuhanMap from "../maps/tumbuhanmap";
+import Sosmed from "../navbar/sosmed";
 
 class Article extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Article extends Component {
   render() {
     return (
       <div className="col-12 article_sehad">
+        <Sosmed type={this.props.jenis} nama={this.tumb.nama} />
         <div className="map_sehad">
 
         </div>
@@ -46,15 +48,16 @@ class Article extends Component {
                     </tbody>
                   </table>
                   <a href={`http://localhost:3000?manfaat=` + this.tumb.nama} className="btn btn-content">Manfaat</a>
-                  <button className="btn btn-content">Persebaran</button>
+                  
                 </React.Fragment>
               ) : (
                   <React.Fragment>
                     <a href={`http://localhost:3000?tumbuhan=` + this.tumb.nama} className="btn btn-content">Detail Tumbuhan</a>
-                    <button className="btn btn-content">Persebaran</button>
                   </React.Fragment>
                 )
             }
+              <a href={`http://localhost:3000?peta=` + this.tumb.nama} className="btn btn-content">Pemetaan Tumbuhan</a>
+                  
           </div>
           <h1>{this.tumb.nama}</h1>
           <div

@@ -21,14 +21,9 @@ class BigMenu extends Component {
           link: "#"
         },
         {
-          kata: "telusuri berbagai jenis jamu tradisional di Indonesia",
-          icon: "pills",
-          link: "#"
-        },
-        {
           kata: "telusuri persebaran tumbuhan yang ada di Indonesia",
           icon: "map",
-          link: "#"
+          link: "pemetaan"
         }
       ]
     };

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Chatbot from "../chatbot/chatbot";
 import Content from "./content";
 import BigMenu from "../bigmenu/bigmenu";
-
 import SiteMap from "../sitemap/sitemap";
 class Home extends Component {
   constructor(props) {
@@ -34,6 +33,8 @@ class Home extends Component {
       this.setState({ type: "about", msg: "" });
     } else if (text === "gallery_tumbuhan") {
       this.setState({ type: "gallery", msg: "tumbuhan" });
+    } else if (text === "pemetaan") {
+      this.setState({ type: "pemetaan", msg: "" });
     }
   }
   setTumbuhan(data) {
@@ -44,7 +45,6 @@ class Home extends Component {
         status: true
       }
     });
-    console.log(this.state);
   }
 
   render() {
