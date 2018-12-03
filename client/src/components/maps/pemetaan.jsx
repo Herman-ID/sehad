@@ -1,12 +1,6 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import {
-    Circle,
-    CircleMarker,
     Map,
-    Polygon,
-    Polyline,
-    Popup,
-    Rectangle,
     TileLayer,
     GeoJSON
 } from "react-leaflet";
@@ -28,54 +22,54 @@ const center = [-0.2897471, 115.0760588]
 //     return <Fragment>{items}</Fragment>
 // }
 
-class pemetaan extends Component{
-    constructor(asd){
+class pemetaan extends Component {
+    constructor(asd) {
         super(asd);
         this.state = {
-            geoJson :[],
-            status:false,
+            geoJson: [],
+            status: false,
         };
-        this.geoJson =[];
-        this.style ={
-            width:"100%",
-            height:"100%"
+        this.geoJson = [];
+        this.style = {
+            width: "100%",
+            height: "100%"
         }
     }
 
     componentDidMount() {
-        const pushJson = (data,datapopup)=>{
+        const pushJson = (data, datapopup) => {
             // geo:data.map(m =>())
             this.setState({
-                geoJson:{geo:data,popup:datapopup}
+                geoJson: { geo: data, popup: datapopup }
             })
         }
         var dataGeoJson = [];
         var dataPopup = [];
-        fetch("http://localhost:5000/api/v1/maps/getStatistic",{
-            method:"POST",
+        fetch("http://localhost:5000/api/v1/maps/getStatistic", {
+            method: "POST",
             headers: { "Content-Type": "application/json" }
         })
-        .then(result => result.json())
-        .then(data=>{
-            var pending = 0;
-            data.forEach(function (item) {
-                var url = "http://localhost:5000/api/v1/geojson?kode_wilayah="+item.provinsi.kode_wilayah;
-                fetch(url,{
-                    method:"GET",
-                    headers: { "Content-Type": "text/plain" }
-                })
-                    .then(result => result.json())
-                    .then(respone=>{
-                        dataPopup.push(item.provinsi.nama)
-                        dataGeoJson.push(respone);
-                        //if(pending == data.length -1){
-                            pushJson(dataGeoJson,dataPopup);
-                        //}
-                        console.log(pending);
-                        pending ++;
+            .then(result => result.json())
+            .then(data => {
+                var pending = 0;
+                data.forEach(function (item) {
+                    var url = "http://localhost:5000/api/v1/geojson?kode_wilayah=" + item.provinsi.kode_wilayah;
+                    fetch(url, {
+                        method: "GET",
+                        headers: { "Content-Type": "text/plain" }
                     })
+                        .then(result => result.json())
+                        .then(respone => {
+                            dataPopup.push(item.provinsi.nama)
+                            dataGeoJson.push(respone);
+                            //if(pending == data.length -1){
+                            pushJson(dataGeoJson, dataPopup);
+                            //}
+                            console.log(pending);
+                            pending++;
+                        })
+                })
             })
-        })
     }
 
     // componentDidUpdate(prevProps, prevState, snapshot) {
@@ -85,7 +79,7 @@ class pemetaan extends Component{
     // }
 
     render() {
-        const showPeta = (data,index)=>{
+        const showPeta = (data, index) => {
             return (
                 <GeoJSON key={data} data={data} color="red" />
             )
@@ -102,12 +96,12 @@ class pemetaan extends Component{
                 />
                 {
                     this.state.geoJson.length !== 0 ? (
-                        this.state.geoJson.geo !== 0 ?(
-                        this.state.geoJson.geo.map((m, index) => (
-                                <Geo key = {index} geo = {m} popup={ this.state.geoJson.popup[index]}/>
-                        )
-                        )):""
-                    ):""
+                        this.state.geoJson.geo !== 0 ? (
+                            this.state.geoJson.geo.map((m, index) => (
+                                <Geo key={index} geo={m} popup={this.state.geoJson.popup[index]} />
+                            )
+                            )) : ""
+                    ) : ""
                 }
             </Map>
         )

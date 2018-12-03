@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Article from "./article";
 import About from "./about";
 import Gallery from "../gallery/gallery";
+import Pemetaan from "../maps/pemetaan";
+
+
 
 class Content extends Component {
   constructor(props) {
@@ -21,14 +24,14 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <About />
-          ) :this.state.jenis === "gallery" ? (
-            <Gallery setTumbuhan={this.props.setTumbuhan}/>
+            <Pemetaan />
+          ) : this.state.jenis === "gallery" ? (
+            <Gallery setTumbuhan={this.props.setTumbuhan} />
           ) : this.state.jenis === "article" ? (
-            <Article data={this.props.content} />
+            <Article data={this.props.content} jenis={this.props.jenis} />
           ) : (
-            ""
-          )}
+                  ""
+                )}
         </div>
       </div>
     );

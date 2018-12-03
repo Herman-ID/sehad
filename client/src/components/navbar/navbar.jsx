@@ -11,9 +11,9 @@ class Navbar extends Component {
       <nav className="sehad_navbar row">
         <div id="share">
 
-          <a class="facebook" href="https://www.facebook.com/share.php?u={{url}}" target="blank"><i className="fab fa-facebook-f"></i></a>
-          <a class="twitter" href="https://twitter.com/intent/tweet?status={{title}}+{{url}}" target="blank"><i className="fab fa-twitter"></i></a>
-          <a class="googleplus" href="https://plus.google.com/share?url={{url}}" target="blank"><i className="fab fa-google-plus-g"></i></a>
+          <a className="facebook" href="https://www.facebook.com/share.php?u={{url}}" target="blank"><i className="fab fa-facebook-f"></i></a>
+          <a className="twitter" href="https://twitter.com/intent/tweet?status={{title}}+{{url}}" target="blank"><i className="fab fa-twitter"></i></a>
+          <a className="googleplus" href="https://plus.google.com/share?url={{url}}" target="blank"><i className="fab fa-google-plus-g"></i></a>
 
         </div>
         <img src={logo} className="sehad_logo" alt="logo sehad" />

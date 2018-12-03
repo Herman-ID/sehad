@@ -486,6 +486,9 @@ section#demo {
   background: #06b79a;
   color: #fff;
 }
+.btn-content:hover{
+  color: #fff;
+}
 .buttonsitemap {
   position: fixed;
   background: #3b3b3b;
@@ -741,4 +744,7 @@ color: #7c7c7c;
 .gallery-temp:hover {
   border-bottom: 3px dotted #06b79a;
 
+}
+.leaflet-container {
+  z-index: 2;
 }

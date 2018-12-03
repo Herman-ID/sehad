@@ -6,9 +6,11 @@ class SiteMap extends Component {
       isopen: false
     };
     this.sitemap = [
+
+      { nama: "Home", link: "about", children: [] },
       {
         nama: "Tumbuhan",
-        link: "tumbuhan",
+        link: "gallery_tumbuhan",
         children: [
           {
             nama: "tumbuhan",
@@ -20,7 +22,6 @@ class SiteMap extends Component {
           }
         ]
       },
-      { nama: "Jamu", link: "jamu", children: [] },
       {
         nama: "Persebaran",
         link: "persebaran",
@@ -34,9 +35,11 @@ class SiteMap extends Component {
     ];
     this.style = {};
     this.onTutup = this.onTutup.bind(this);
+    this.Click = this.Click.bind(this);
   }
   Click(link) {
-    console.log(link);
+    this.onTutup();
+    this.props.pindahmenu(link, false);
   }
   onTutup() {
     if (this.state.isopen === true) {
@@ -67,7 +70,6 @@ class SiteMap extends Component {
       };
     }
     this.setState({ isopen: !this.state.isopen });
-    console.log("click");
   }
   render() {
     return (

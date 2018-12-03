@@ -5,7 +5,6 @@ import "./asset/main.css";
 import Navbar from "./components/navbar/navbar";
 import LeftBar from "./components/leftbar/leftbar";
 import Home from "./components/content/home";
-import SiteMap from "./components/sitemap/sitemap";
 import Leaflet from 'leaflet';
 
 Leaflet.Icon.Default.imagePath =
@@ -36,7 +35,6 @@ class App extends React.Component {
           <LeftBar />
           <div className="dec_i" />
           <Home menu={this.state.menu} OnMenuClick={this.OnMenuClick} />
-          <SiteMap />
         </div>
       </Router>
     );
