@@ -2,6 +2,24 @@ var con = require("../connection/mysql");
 var async = require("async");
 
 var appJamu = {
+    getJamu:function(req,res){
+        var id = req.body.jamu_id;
+        var keyword = req.body.keyword;
+
+        var sql = "select * from jamu";
+        if(id != null){
+            sql += " where id = "+con.escape(id);
+        }
+
+        if(keyword != null){
+            sql += "where nama like "+con.escape("%"+keyword+"%");
+        }
+
+        con.query(sql,function (err,result) {
+            if(err) return res(err);
+            return res(result);
+        })
+    },
     getDetailJamu:function(req,res){
         var id_jamu = req.body.jamu_id;
         var return_value = {};
