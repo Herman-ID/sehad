@@ -68,7 +68,7 @@ var statisticModel = {
                 })
             },
             function (pararel_done) {
-                var sql = "select id,nama,latin,ordo,famili,genus,spesies from v_tumbuhan_persebaran ";
+                var sql = "select id,nama,latin,ordo,famili,genus,spesies,wikipedia from v_tumbuhan_persebaran ";
                 if(provinsi != null){
                     sql += "where provinsi = ?";
                 }
