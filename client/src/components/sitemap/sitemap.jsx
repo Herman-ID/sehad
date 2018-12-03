@@ -6,9 +6,11 @@ class SiteMap extends Component {
       isopen: false
     };
     this.sitemap = [
+
+      { nama: "Home", link: "about", children: [] },
       {
-        nama: "tumbuhan",
-        link: "tumbuhan",
+        nama: "Tumbuhan",
+        link: "gallery_tumbuhan",
         children: [
           {
             nama: "tumbuhan",
@@ -20,18 +22,24 @@ class SiteMap extends Component {
           }
         ]
       },
-      { nama: "jamu", link: "jamu", children: [] },
       {
-        nama: "penyakit",
-        link: "penyakit",
+        nama: "Persebaran",
+        link: "persebaran",
         children: []
-      }
+      },
+      {
+        nama: "Klasifikasi",
+        link: "klasifikasi",
+        children: []
+      },
     ];
     this.style = {};
     this.onTutup = this.onTutup.bind(this);
+    this.Click = this.Click.bind(this);
   }
   Click(link) {
-    console.log(link);
+    this.onTutup();
+    this.props.pindahmenu(link, false);
   }
   onTutup() {
     if (this.state.isopen === true) {
@@ -57,12 +65,11 @@ class SiteMap extends Component {
           left: "0px"
         },
         button: {
-          left: "400px"
+          left: "300px"
         }
       };
     }
     this.setState({ isopen: !this.state.isopen });
-    console.log("click");
   }
   render() {
     return (
@@ -95,8 +102,8 @@ class SiteMap extends Component {
                     ))}
                   </ul>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </li>
             ))}
           </ul>
@@ -109,7 +116,7 @@ class SiteMap extends Component {
           <i
             className={`fas fa-arrow-${
               this.state.isopen === false ? "right" : "left"
-            }`}
+              }`}
           />
         </button>
       </React.Fragment>

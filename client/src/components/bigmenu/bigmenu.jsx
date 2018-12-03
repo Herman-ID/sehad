@@ -13,7 +13,7 @@ class BigMenu extends Component {
         {
           kata: "telusuri berbagai jenis tanaman obat",
           icon: "leaf",
-          link: "#"
+          link: "gallery_tumbuhan"
         },
         {
           kata: "pelajari berbagai klasifikasi tanaman obat",

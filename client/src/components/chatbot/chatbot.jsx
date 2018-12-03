@@ -36,9 +36,9 @@ class Chatbot extends Component {
     const channel = pusher.subscribe("bot");
     channel.bind(localStorage.getItem("channel_id"), data => {
       const doto = JSON.parse(data.message);
-
+      console.log(doto);
       if (doto.status === true) {
-        if (doto.type === "tumbuhan") {
+        if (doto.type === "tumbuhan" || doto.type === "manfaat") {
           msg = {
             image: doto.data.image,
             text: doto.data.summary.substring(0, 60) + "...",
@@ -77,11 +77,17 @@ class Chatbot extends Component {
       var url_string = window.location.href;
       var url = new URL(url_string);
       var c = url.searchParams.get("tumbuhan");
-      if (c !== null) {
-        const msg = {
-          text: "apa itu " + c + "?",
+      var d = url.searchParams.get("manfaat");
+      if (c !== null || d !== null) {
+        var msg = {
+          text: "",
           user: "human"
         };
+        if (c !== null) {
+          msg.text = "apa itu " + c + "?";
+        } else if (d != null) {
+          msg.text = "manfaat dari " + d;
+        }
         this.setState({
           conversation: [...this.state.conversation, msg],
           selesai: true
@@ -154,7 +160,7 @@ class Chatbot extends Component {
     };
 
     const chat = this.state.conversation.map((e, index) =>
-      e.type === "tumbuhan" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
+      e.type === "tumbuhan" || e.type === "manfaat" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
     );
 
     return (
