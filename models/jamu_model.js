@@ -1,12 +1,6 @@
 var con = require("../connection/mysql");
 var async = require("async");
-try{
-    // con.connect(function(err) {
-    //     if(err) console.dir(err);
-    // })
-}catch(err){
 
-}
 var appJamu = {
     getDetailJamu:function(req,res){
         var id_jamu = req.body.jamu_id;
@@ -20,7 +14,7 @@ var appJamu = {
             var sql = "select * from jamu where id = ?";
             con.query(sql, [id_jamu], function(err, result, field) {
                 if (err) return_value.jamu = err;
-                return_value.jamu = result;
+                return_value.jamu = result[0];
                 parallel_done();
             });
             },
@@ -40,7 +34,7 @@ var appJamu = {
         );
     },
     searchJamu:function(req,res){
-        var keyword = req.bocy.keyword;
+        var keyword = req.body.keyword;
         if(keyword == null){
             return res({status:false,message:"Data Keyword tidak boleh kosong"});
         }
