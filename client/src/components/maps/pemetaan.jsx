@@ -60,7 +60,7 @@ class pemetaan extends Component {
                     })
                         .then(result => result.json())
                         .then(respone => {
-                            dataPopup.push(item.provinsi.nama)
+                            dataPopup.push(item.data)
                             dataGeoJson.push(respone);
                             //if(pending == data.length -1){
                             pushJson(dataGeoJson, dataPopup);
