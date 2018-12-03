@@ -4,6 +4,7 @@ import About from "./about";
 import Gallery from "../gallery/gallery";
 import Pemetaan from "../maps/pemetaan";
 import Tumbuhanmap from "../maps/tumbuhanmap";
+import Klasifikasi from "../klasifikasi/klasifikasi";
 
 
 class Content extends Component {
@@ -24,7 +25,7 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <About />
+            <Klasifikasi />
           ) : this.state.jenis === "gallery" ? (
             <Gallery setTumbuhan={this.props.setTumbuhan} />
           ) : this.state.jenis === "article" && this.props.jenis !== "peta" ? (
