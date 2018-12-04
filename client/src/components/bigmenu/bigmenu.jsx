@@ -18,7 +18,7 @@ class BigMenu extends Component {
         {
           kata: "pelajari berbagai klasifikasi tanaman obat",
           icon: "chart-bar",
-          link: "#"
+          link: "klasifikasi"
         },
         {
           kata: "telusuri persebaran tumbuhan yang ada di Indonesia",

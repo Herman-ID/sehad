@@ -38,16 +38,23 @@ class Chatbot extends Component {
       const doto = JSON.parse(data.message);
       console.log(doto);
       if (doto.status === true) {
-        if (doto.type === "tumbuhan" ||doto.type === "peta" || doto.type === "manfaat") {
+        if (doto.type === "tumbuhan" || doto.type === "peta" || doto.type === "manfaat") {
           msg = {
             image: doto.data.image,
             text: doto.data.summary.substring(0, 60) + "...",
             user: "ai",
             type: doto.type
           };
+          this.props.onDataComing(doto);
+        } if (doto.type === "jamu") {
+          msg = {
+            text: doto.result,
+            user: "ai",
+            type: doto.type
+          };
+          console.log(doto)
         }
-        this.props.onDataComing(doto);
-      } 
+      }
       else {
         msg = {
           text: doto.message,
@@ -162,9 +169,23 @@ class Chatbot extends Component {
         </div>
       );
     };
+    const JamuBubble = (data, index) => {
+      return (
+        <div
+          key={`${data.user}-${index}`}
+          className={`${data.user} chat-bubble`}
+        >
+          <span
+            className="chat-content"
+            dangerouslySetInnerHTML={{ __html: "hai, berikut ini komposisi untuk jamu " + data.jamu.nama }}
+          />
+        </div>
+      );
+    };
+
 
     const chat = this.state.conversation.map((e, index) =>
-      e.type === "tumbuhan" || e.type === "manfaat" || e.type === "peta" ? TumbuhanBubble(e, index) : ChatBubble(e, index)
+      e.type === "tumbuhan" || e.type === "manfaat" || e.type === "peta" ? TumbuhanBubble(e, index) : e.type === "jamu" ? JamuBubble(e, index) : ChatBubble(e, index)
     );
 
     return (

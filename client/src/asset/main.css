@@ -784,3 +784,47 @@ color: #7c7c7c;
   font-weight: 800;
 
 }
+
+.sehad_klasifikasi{
+  padding: 50px;
+}
+
+/* guide */
+
+.guide-back{
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 998;
+}
+
+.guide-main{
+  position: fixed;
+  top: calc(50vh - 200px);
+  left: calc(50vw - 250px);
+  width: 500px;
+  height: 400px;
+  z-index: 999;
+}
+
+.slide-arrow{
+  color: #000;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  margin-top: calc(50% - 20px);
+}
+
+.image_guide{
+  width: 320px !important;
+  height: 453px;
+  margin: 0px 40px;
+}

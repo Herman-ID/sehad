@@ -35,6 +35,8 @@ class Home extends Component {
       this.setState({ type: "gallery", msg: "tumbuhan" });
     } else if (text === "pemetaan") {
       this.setState({ type: "pemetaan", msg: "" });
+    } else if (text === "klasifikasi") {
+      this.setState({ type: "klasifikasi", msg: "" });
     }
   }
   setTumbuhan(data) {
@@ -64,8 +66,8 @@ class Home extends Component {
         </React.Fragment>
         <BigMenu hidden={this.props.menu} pindahmenu={this.pindahMenu} />
         <SiteMap pindahmenu={this.pindahMenu} />
-        <div className="one-top" />
-        <div className="two-top" />
+        {/* <div className="one-top" />
+        <div className="two-top" /> */}
       </div>
     );
   }

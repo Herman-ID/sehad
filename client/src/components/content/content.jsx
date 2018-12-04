@@ -25,7 +25,7 @@ class Content extends Component {
       <div className="col-8">
         <div className="sehad__content">
           {this.state.jenis === "about" ? (
-            <Klasifikasi />
+            <About />
           ) : this.state.jenis === "gallery" ? (
             <Gallery setTumbuhan={this.props.setTumbuhan} />
           ) : this.state.jenis === "article" && this.props.jenis !== "peta" ? (
@@ -34,6 +34,8 @@ class Content extends Component {
             <Pemetaan />
           ) : this.props.jenis === "peta" ? (
             <Tumbuhanmap data={this.props.content} />
+          ) : this.state.jenis === "klasifikasi" ? (
+            <Klasifikasi />
           ) : null}
         </div>
       </div>
