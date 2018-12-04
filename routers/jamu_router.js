@@ -12,7 +12,9 @@ var appRouter = function(app) {
   });
 
   app.post("/api/v1/jamu/", function(req, res) {
-    res.status(200).json({ message: "berhasil" });
+    jamu.getJamu(req,function (stat) {
+        res.status(200).json(stat);
+    })
   });
 
   /*
