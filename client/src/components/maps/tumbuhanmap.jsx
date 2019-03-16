@@ -24,31 +24,36 @@ class Tumbuhanmap extends Component {
     }
 
     componentDidMount() {
-        const pushJson = (data, datapopup) => {
-            // geo:data.map(m =>())
-            this.setState({
-                geoJson: { geo: data, popup: datapopup }
-            })
-        }
-        var dataGeoJson = [];
-        var dataPopup = []; var pending = 0;
-        this.props.data.provinsi.forEach(function (item) {
-            var url = "http://localhost:5000/api/v1/geojson?kode_wilayah=" + item.provinsi;
-            fetch(url, {
-                method: "GET",
-                headers: { "Content-Type": "text/plain" }
-            })
-                .then(result => result.json())
-                .then(respone => {
-                    dataPopup.push(item.nama_provinsi)
-                    dataGeoJson.push(respone);
-                    //if(pending == data.length -1){
-                    pushJson(dataGeoJson, dataPopup);
-                    //}
-                    console.log(pending);
-                    pending++;
+        if(this.state.geoJson.length === 0){
+            const pushJson = (data, datapopup) => {
+                // geo:data.map(m =>())
+                this.setState({
+                    geoJson: { geo: data, popup: datapopup }
                 })
-        })
+            }
+            var dataGeoJson = [];
+            var dataPopup = []; var pending = 0;
+            this.props.data.provinsi.forEach(function (item) {
+                var url = "http://localhost:5000/api/v1/geojson?kode_wilayah=" + item.provinsi;
+                fetch(url, {
+                    method: "GET",
+                    headers: { "Content-Type": "text/plain" }
+                })
+                    .then(result => result.json())
+                    .then(respone => {
+                        dataPopup.push(item.nama_provinsi)
+                        dataGeoJson.push(respone);
+                        //if(pending == data.length -1){
+                        pushJson(dataGeoJson, dataPopup);
+                        //}
+                        console.log(pending);
+                        pending++;
+                    })
+            })
+
+        }else{
+            this.setState({geoJson : []})
+        }
     }
 
     // componentDidUpdate(prevProps, prevState, snapshot) {
@@ -73,7 +78,7 @@ class Tumbuhanmap extends Component {
                 <Map center={center} zoom={5} style={this.style}>
 
                     <TileLayer
-                        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        attribution=' &amp;copy <a href="http://github.com/Herman-ID/sehad">Sehad</a> 2018 | &amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors '
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {

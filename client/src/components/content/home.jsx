@@ -63,6 +63,9 @@ class Home extends Component {
             url={this.state.urlsegment}
             isfinish={this.state.selesai}
           />
+            {
+
+            }
         </React.Fragment>
         <BigMenu hidden={this.props.menu} pindahmenu={this.pindahMenu} />
         <SiteMap pindahmenu={this.pindahMenu} />

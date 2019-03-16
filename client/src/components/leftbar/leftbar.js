@@ -13,10 +13,8 @@ class LeftBar extends Component {
         <div className="sehad_leftbar__accent" />
         <ul className="nav">
           <li>
-            <a onClick={this.handledata("id")}>ID</a>
           </li>
           <li>
-            <a onClick={this.handledata("en")}>EN</a>
           </li>
         </ul>
       </div>

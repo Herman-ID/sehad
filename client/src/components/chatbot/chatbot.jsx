@@ -170,16 +170,26 @@ class Chatbot extends Component {
       );
     };
     const JamuBubble = (data, index) => {
+      console.log(data);
       return (
-        <div
+        <React.Fragment><div
           key={`${data.user}-${index}`}
           className={`${data.user} chat-bubble`}
         >
           <span
             className="chat-content"
-            dangerouslySetInnerHTML={{ __html: "hai, berikut ini komposisi untuk jamu " + data.jamu.nama }}
+            dangerouslySetInnerHTML={{ __html: "hai, berikut ini komposisi untuk jamu " + data.text.jamu.nama }}
           />
+
         </div>
+            <div className="row chat-option ">
+                {
+                  data.text.komposisi.map(m => (
+                      <a className="chat-op" href={`http://localhost:3000?tumbuhan=`+m.nama}>{m.dosis +" " + m.satuan+" " +m.nama}</a>
+                  ))
+                }
+            </div>
+        </React.Fragment>
       );
     };
 

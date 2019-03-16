@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
     Map,
     TileLayer,
-    GeoJSON
+    GeoJSON,
+    LayerGroup
 } from "react-leaflet";
 import Geo from "./Geo";
 import "../../asset/leaflet/leaflet.css"
@@ -94,6 +95,7 @@ class pemetaan extends Component {
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <LayerGroup>
                 {
                     this.state.geoJson.length !== 0 ? (
                         this.state.geoJson.geo !== 0 ? (
@@ -103,6 +105,7 @@ class pemetaan extends Component {
                             )) : ""
                     ) : ""
                 }
+                </LayerGroup>
             </Map>
         )
     }
